@@ -1,107 +1,32 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect, useState}  from 'react';
 import FollowUs from "../../components/FollowUs";
 import MixCarousel from "../../components/MixCarousel";
 import {Link} from "react-router-dom";
 import BusinessNews from "../../components/BusinessNews";
 import NewsLetter from "../../components/NewsLetter";
 import CategoriesWidget from "../../components/CategoriesWidget";
-
 import banner2 from '../../doc/img/bg/sidebar-1.png';
-import business1 from '../../doc/img/business/business1.jpg';
-import business2 from '../../doc/img/business/business2.jpg';
-import business3 from '../../doc/img/business/business3.jpg';
 
-const businessNews = [
-    {
-        image: business1,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business2,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business3,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-      image: business1,
-      category: 'uiux.subash',
-      date: 'March 26, 2020',
-      title: 'Copa America: Luis Suarez from devastated US',
-      body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business2,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business3,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-      image: business1,
-      category: 'uiux.subash',
-      date: 'March 26, 2020',
-      title: 'Copa America: Luis Suarez from devastated US',
-      body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business2,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business3,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-      image: business1,
-      category: 'uiux.subash',
-      date: 'March 26, 2020',
-      title: 'Copa America: Luis Suarez from devastated US',
-      body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-      image: business2,
-      category: 'uiux.subash',
-      date: 'March 26, 2020',
-      title: 'Copa America: Luis Suarez from devastated US',
-      body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-      image: business3,
-      category: 'uiux.subash',
-      date: 'March 26, 2020',
-      title: 'Copa America: Luis Suarez from devastated US',
-      body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    }
-];
+const fetchData = async (url) => {
+  const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
+  const json = await res.json()
+  return json
+}
 
 const HomePage = () => {
+
+  const [businessNews, setBusinessNews] = useState([])
+
+  useEffect(() => {
+    fetchData("http://localhost:4000/api/v1/posts").then(news => {
+      console.log(news)
+      setBusinessNews(news)
+    })
+  }, [])
+
   return (
       <Fragment>
-
+ 
           <MixCarousel className="half_bg1"/>
 
           <div className="space-70"/>

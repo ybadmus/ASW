@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState}  from 'react';
 import {Link} from "react-router-dom";
 
 import union from '../../doc/img/icon/union.png';
@@ -30,7 +30,22 @@ const categories = [
     }
 ];
 
+const fetchData = async (url) => {
+  const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
+  const json = await res.json()
+  return json
+}
+
 const CategoriesWidget = () => {
+
+    const [categories, setBusinessNews] = useState([])
+
+    useEffect(() => {
+      fetchData("http://localhost:4000/api/v1/categories").then(news => {
+        setBusinessNews(news)
+      })
+    }, [])
+
     return (
         <div className="widget category mb30">
             <div className="row">
@@ -42,8 +57,8 @@ const CategoriesWidget = () => {
             <ul>
                 {categories.map((item, i) => (
                     <li key={i}>
-                        <Link to="/" style={{background: `url(${item.big_image})`}}> <span>{item.title}</span>
-                            <img src={item.small_img} alt="category"/>
+                        <Link to="/" style={{background: `url(${category1})`}}> <span>{item.name}</span>
+                            <img src={union} alt="category"/>
                         </Link>
                     </li>
                 ))}
