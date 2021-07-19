@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 const BusinessNews = ({businessNews, headerHide}) => {
+  
     return (
         <div className="row">
             <div className="col-12">

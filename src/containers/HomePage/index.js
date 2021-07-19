@@ -15,19 +15,31 @@ const fetchData = async (url) => {
 
 const HomePage = () => {
 
-  const [businessNews, setBusinessNews] = useState([])
+  const [businessNews, setBusinessNews] = useState([]);
+  const [mixArray, setMixArray] = useState([]);
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
+
     fetchData("http://localhost:4000/api/v1/posts").then(news => {
-      console.log(news)
-      setBusinessNews(news)
-    })
-  }, [])
+      setBusinessNews(news);
+    });
+
+    fetchData("http://localhost:4000/api/v1/categories/3/posts").then(news => {
+      setMixArray(news);
+    });
+
+    fetchData("http://localhost:4000/api/v1/categories").then(news => {
+      setCategories(news)
+    });
+
+  }, [businessNews, mixArray, categories])
+
 
   return (
       <Fragment>
  
-          <MixCarousel className="half_bg1"/>
+          <MixCarousel className="half_bg1" mixArray={mixArray}/>
 
           <div className="space-70"/>
 
@@ -42,7 +54,7 @@ const HomePage = () => {
                           <div className="row">
 
                               <div className="col-lg-12">
-                                  <CategoriesWidget/>
+                                  <CategoriesWidget categories={categories}/>
                               </div>  
 
                               <div className="col-lg-12">

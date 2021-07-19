@@ -1,47 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import FontAwesome from "../uiStyle/FontAwesome";
 import {Link} from "react-router-dom";
 import Swiper from 'react-id-swiper';
-import ModalVideo from 'react-modal-video'
+import ModalVideo from 'react-modal-video';
 
-import black_white1 from '../../doc/img/bg/black_white1.jpg';
-import black_white2 from '../../doc/img/bg/black_white2.jpg';
-
-const mixArray = [
-    {
-        icon: 'play',
-        image: black_white1,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'Success is not a good food failure makes you humble',
-    },
-    {
-        icon: 'bolt',
-        image: black_white2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'Success is not a good food failure makes you humble',
-    },
-    {
-        icon: 'play',
-        image: black_white1,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'Success is not a good food failure makes you humble',
-    },
-    {
-        icon: 'bolt',
-        image: black_white2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'Success is not a good food failure makes you humble',
-    },
-];
-
-const MixCarousel = ({className, dark}) => {
+const MixCarousel = ({className, dark, mixArray}) => {
     const [swiper, setSwiper] = useState(null);
     const [vModal, setvModal] = useState(false);
     const [videoId] = useState('0r6C3z3TEKw');
+    
 
     const goNext = () => {
         if (swiper !== null) {
@@ -54,6 +21,7 @@ const MixCarousel = ({className, dark}) => {
             swiper.slidePrev();
         }
     };
+
     const params = {
         slidesPerView: 2,
         spaceBetween: 30,
@@ -77,13 +45,13 @@ const MixCarousel = ({className, dark}) => {
             },
         }
     };
+
     return (
         <div className={`mix_area ${className ? className : ''}`}>
             <div className="container">
                 <div className="row">
                     <div className="col-12">
                         <div className={`mix_carousel ${dark ? 'primay_bg' : ''}`}>
-                            {/*CAROUSEL START*/}
                             <div className="single_mix_carousel nav_style3">
                                 <Swiper getSwiper={setSwiper} {...params}>
                                     {mixArray.map((item, i) => (
@@ -91,12 +59,9 @@ const MixCarousel = ({className, dark}) => {
                                             <div className="post_img gradient1">
                                                 <div className="img_wrap">
                                                     <Link className="play_btn" to="/">
-                                                        <img src={item.image} alt="news"/>
+                                                        <img src={item.image} className="carousel_img" alt="news"/>
                                                     </Link>
                                                 </div>
-                                                <span onClick={() => setvModal(true)}
-                                                      className={`tranding ${i % 2 ? 'left' : ''}`}><FontAwesome
-                                                    name={item.icon}/></span>
                                             </div>
                                             <div className="single_post_text">
                                                 <div className="meta"><Link to="/">{item.category}</Link>
