@@ -9,11 +9,25 @@ const NewsLetter = ({className, input_white, titleClass}) => {
       setEmail(e.target.value);
     }
   
-    const signup = async (e) => {
-      e.preventDefault();
+    const handleSave = async () => {
       let data = {ip_address: '127.0.0.1', email_address: email }
-      await fetch("http://localhost:4000/api/v1/newsletters", { method: 'POST', mode: 'cors', 
-        headers: { 'Access-Control-Allow-Origin':'*', 'Content-Type':'application/json' }, body: JSON.stringify(data)})
+      const res = await fetch("http://localhost:4000/api/v1/newsletters", { method: 'POST', mode: 'cors', 
+        headers: { 'Access-Control-Allow-Origin':'*', 'Content-Type':'application/json' }, body: JSON.stringify(data)});
+      try {
+        const json = await res.json(); 
+        return json
+      } catch (error) {
+        return ["Email successfully added to subscribers list."]
+      }
+    }
+
+    const onSignupClick = async (e) => {
+      e.preventDefault();
+      setEmail("");
+      handleSave()
+        .then(function(json) {
+          console.log(json)
+        })
     }
   
     return (
@@ -25,7 +39,7 @@ const NewsLetter = ({className, input_white, titleClass}) => {
                 <form>
                     <input className={`signup ${input_white ? 'white_bg' : ''}`} type="email"
                         value={email} onChange={handleChange} placeholder="Your email address"/>
-                    <button type="button" className="cbtn" onClick={signup}>sign up</button>
+                    <button type="button" className="cbtn" id="cbtn" onClick={onSignupClick}>sign up</button>
                 </form>
                 <div className="space-10"/>
                 <p>We hate spam as much as you do</p>
