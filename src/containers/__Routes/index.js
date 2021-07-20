@@ -20,9 +20,10 @@ const Routes = () => {
                 component={HomePage}/>
             <PrivateRoute
                 exact
-                path="/entertainment"
+                path="/category/:id"
                 parentClass="theme-1"
-                component={EntertainmentPage}/>
+                component={EntertainmentPage}
+                children={<EntertainmentPage />} />
             <PrivateRoute
                 exact
                 path="/about"

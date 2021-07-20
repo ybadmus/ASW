@@ -1,4 +1,4 @@
-import React, {useEffect, useState}  from 'react';
+import React  from 'react';
 import {Link} from "react-router-dom";
 
 import union from '../../doc/img/icon/union.png';
@@ -17,7 +17,7 @@ const CategoriesWidget = ({categories}) => {
             <ul>
                 {categories.map((item, i) => (
                     <li key={i}>
-                        <Link to="/" style={{background: `url(${category1})`}}> <span>{item.name}</span>
+                        <Link to={`/category/${item.id}`} style={{background: `url(${category1})`}}> <span>{item.name}</span>
                             <img src={union} alt="category"/>
                         </Link>
                     </li>

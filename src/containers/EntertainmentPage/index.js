@@ -1,98 +1,41 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
 import BreadCrumb from "../../components/BreadCrumb";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
 import {Link} from "react-router-dom";
-import WidgetTab from "../../components/WidgetTab";
-import WidgetTrendingNews from "../../components/WidgetTrendingNews";
 import NewsLetter from "../../components/NewsLetter";
 import FollowUs from "../../components/FollowUs";
 import EntertainmentNews from "../../components/EntertainmentNews";
-
-// images
 import banner2 from "../../doc/img/bg/sidebar-1.png";
-import enter1 from '../../doc/img/entertrainment/enter1.jpg';
-import enter2 from '../../doc/img/entertrainment/enter2.jpg';
-import enter3 from '../../doc/img/entertrainment/enter3.jpg';
-import enter4 from '../../doc/img/entertrainment/enter4.jpg';
 import BannerSection from "../../components/BannerSection";
 
-const entertainments = [
-    {
-        image: enter1,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter4,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter1,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter4,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter4,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-];
+const fetchData = async (url) => {
+  const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
+  const json = await res.json()
+  return json
+}
 
 const EntertainmentPage = () => {
+
+    let [category, setCategory] = useState("");
+    let [entertainments, setEntertainments] = useState([]);
+    let [categories, setCategories] = useState([])
+    let { id } = useParams();
+
+    useEffect(() => {
+
+      if (entertainments.length == 0) {
+        fetchData(`http://localhost:4000/api/v1/categories/${id}/posts`).then(news => {
+          setCategory(news[0].category)
+          setEntertainments(news);
+        });
+      }
+  
+    }, [entertainments]);
+  
     return (
         <Fragment>
-            <BreadCrumb title="Business"/>
+            <BreadCrumb title={category}/>
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
@@ -100,13 +43,13 @@ const EntertainmentPage = () => {
                             <div className="row">
                                 <div className="col-12 align-self-center">
                                     <div className="categories_title">
-                                        <h5>Category: <Link to="/">Entertainment</Link></h5>
+                                        <h5>{category}</h5>
                                     </div>
                                 </div>
                             </div>
                             <div className="entertrainment_carousel">
                                 <div className="entertrainment_item">
-                                    <div className="row justify-content-center">
+                                    <div className="row">
                                         <EntertainmentNews headerHide={true} entertainments={entertainments}/>
                                     </div>
                                 </div>
@@ -144,15 +87,13 @@ const EntertainmentPage = () => {
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4">
-                            <WidgetTab/>
-                            <WidgetTrendingNews/>
-                            <NewsLetter/>
                             <FollowUs title="Follow Us"/>
                             <div className="banner2 mb30">
                                 <Link to="/">
                                     <img src={banner2} alt="thumb"/>
                                 </Link>
                             </div>
+                            <NewsLetter/>
                         </div>
                     </div>
                 </div>

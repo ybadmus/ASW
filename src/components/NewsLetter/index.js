@@ -17,7 +17,10 @@ const NewsLetter = ({className, input_white, titleClass}) => {
         const json = await res.json(); 
         return json
       } catch (error) {
-        return ["Email successfully added to subscribers list."]
+        if(res.ok)
+          return ["Email successfully added to subscribers list."]
+        else
+          return [res.statusText] 
       }
     }
 

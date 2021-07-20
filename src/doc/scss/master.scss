@@ -560,6 +560,7 @@ a.social_medium {
 
 .news_letter {
   background: $input_bg;
+  padding: 30px;
 
   p {
     color: $news_letter_body;
@@ -2800,4 +2801,8 @@ a.cbtn3 {
 .page_comments ul {
   margin: 0;
   padding: 0;
+}
+
+.cotact_form input, textarea {
+  border: 1px solid silver;
 }
