@@ -21,19 +21,34 @@ const HomePage = () => {
 
   useEffect(() => {
 
-    fetchData("http://localhost:4000/api/v1/posts").then(news => {
-      setBusinessNews(news);
-    });
+    if (businessNews.length == 0) {
+      fetchData("http://localhost:4000/api/v1/posts").then(news => {
+        setBusinessNews(news);
+      });
+    }
 
-    fetchData("http://localhost:4000/api/v1/categories/3/posts").then(news => {
-      setMixArray(news);
-    });
+  }, [businessNews]);
 
-    fetchData("http://localhost:4000/api/v1/categories").then(news => {
-      setCategories(news)
-    });
+  useEffect(() => {
 
-  }, [businessNews, mixArray, categories])
+    if (mixArray.length == 0) {
+      fetchData("http://localhost:4000/api/v1/posts/top_news").then(news => {
+        setMixArray(news);
+      });
+    }
+
+  }, [mixArray]);
+
+  useEffect(() => {
+
+    if (categories.length == 0) {
+      fetchData("http://localhost:4000/api/v1/categories").then(news => {
+        setCategories(news)
+      });
+    }
+    
+  }, [categories]);
+
 
 
   return (
