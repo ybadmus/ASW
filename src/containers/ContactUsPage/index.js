@@ -22,11 +22,13 @@ class ContactUsPage extends Component {
         phone: '',
         message: '',
     };
+
     changeHandler = e => {
         this.setState({
             [e.target.name]: e.target.value
         })
     };
+
     submitHandler = e => {
         e.preventDefault();
         if (this.validator.allValid()) {

@@ -20,7 +20,7 @@ const EntertainmentNews = ({entertainments}) => {
                             </div>
                             <h4><Link to="/post1">{item.title}</Link></h4>
                             <div className="space-10"/>
-                            <p className="post-p">{item.body}</p>
+                            <p className="post-p">{item.description} ...</p>
                         </div>
                     </div>
                 </div>

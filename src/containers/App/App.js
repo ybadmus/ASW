@@ -12,7 +12,16 @@ const App = (props) => {
         <Fragment>
             {props.loading && <h1>loading...</h1>}
             <Routes/>
-            <ToastContainer position="top-center"/>
+            <ToastContainer position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
             <ScrollTopButton/>
         </Fragment>
     );

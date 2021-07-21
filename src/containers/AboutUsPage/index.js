@@ -2,12 +2,9 @@ import React, {Fragment, useState} from 'react';
 import BreadCrumb from "../../components/BreadCrumb";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
 import {Link} from "react-router-dom";
-import WidgetTab from "../../components/WidgetTab";
-import WidgetTrendingNews from "../../components/WidgetTrendingNews";
 import NewsLetter from "../../components/NewsLetter";
 import EntertainmentNews from "../../components/EntertainmentNews";
 import {Fade, Nav, NavItem, TabContent, TabPane} from "reactstrap";
-import MostShareWidget from "../../components/MostShareWidget";
 import BannerSection from "../../components/BannerSection";
 import classnames from 'classnames';
 
@@ -115,7 +112,7 @@ const AboutUsPage = () => {
     };
     return (
         <Fragment>
-            <BreadCrumb className="shadow5" title="Archive">
+            <BreadCrumb className="shadow5" title="About">
                 <Fragment>
                     <div className="space-50"/>
                     <div className="row">
@@ -126,10 +123,10 @@ const AboutUsPage = () => {
                                         <img src={author1} alt="author1"/>
                                     </div>
                                 </div>
-                                <div className="author_content"><Link to="/">QuomodoSoft</Link>
+                                <div className="author_content"><Link to="/">Awutu Senya Watch</Link>
                                     <ul className="inline">
-                                        <li>News Writer</li>
-                                        <li>Since: April 25, 2020</li>
+                                        <li>News & Media Website,</li>
+                                        <li>Since: December 21, 2020</li>
                                     </ul>
                                 </div>
                                 <p>QuomodoSoft is an investigative reporter for Newspark, based in Bangladesh. He
@@ -236,15 +233,19 @@ const AboutUsPage = () => {
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4">
-                            <WidgetTab/>
-                            <WidgetTrendingNews/>
-                            <div className="banner2 mb30">
-                                <Link to="/">
-                                    <img src={banner2} alt="thumb"/>
-                                </Link>
-                            </div>
-                            <MostShareWidget title="Most Share"/>
-                            <NewsLetter/>
+                              <div className="space-50"/> 
+
+                              <div className="col-lg-12">
+                                  <div className="banner2 mb30">
+                                      <Link to="/">
+                                          <img src={banner2} alt="thumb"/>
+                                      </Link>
+                                  </div>
+                              </div>
+
+                              <div className="col-lg-12">
+                                  <NewsLetter/>
+                              </div>
                         </div>
                     </div>
                 </div>
