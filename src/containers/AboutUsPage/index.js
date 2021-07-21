@@ -6,6 +6,7 @@ import NewsLetter from "../../components/NewsLetter";
 import EntertainmentNews from "../../components/EntertainmentNews";
 import {Fade, Nav, NavItem, TabContent, TabPane} from "reactstrap";
 import BannerSection from "../../components/BannerSection";
+import MostShareWidget from "../../components/MostShareWidget";
 import classnames from 'classnames';
 
 // images
@@ -170,7 +171,7 @@ const AboutUsPage = () => {
                                                         toggle('2');
                                                     }}
                                                 >
-                                                    Popular news
+                                                    Entertainment
                                                 </div>
                                             </NavItem>
                                         </Nav>
@@ -233,7 +234,7 @@ const AboutUsPage = () => {
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4">
-                              <div className="space-50"/> 
+                              <MostShareWidget title="Sports"/>
 
                               <div className="col-lg-12">
                                   <div className="banner2 mb30">
