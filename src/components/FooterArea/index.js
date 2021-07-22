@@ -1,19 +1,49 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import FooterCopyright from "../FooterCopyright";
-import FooterMoreNews from "../FooterMoreNews";
-import TwitterFeed from "../TwitterFeed";
 import FontAwesome from "../uiStyle/FontAwesome";
-
+import {toast} from "react-toastify";
 import flogo from '../../doc/img/logo/footer_logo.png';
-import FooterNewsCategories from "../FooterNewsCategories";
 
 const FooterArea = ({className}) => {
-    const [email, setEmail] = useState('');
-    const submitHandler = e => {
-        e.preventDefault();
-        setEmail('')
+    const [email, setEmail] = useState(''); 
+      
+    const handleChange = (e) => {
+      setEmail(e.target.value);
     };
+
+    const validateEmail = (email) => {
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
+    };
+
+    const handleSave = async () => {
+
+      let data = {ip_address: '127.0.0.1', email_address: email }
+      const res = await fetch("http://localhost:4000/api/v1/newsletters", { method: 'POST', mode: 'cors', 
+        headers: { 'Access-Control-Allow-Origin':'*', 'Content-Type':'application/json' }, body: JSON.stringify(data)});
+      try {
+        const json = await res.json(); 
+        return json
+      } catch (error) {
+        if(res.ok)
+          return ["Email successfully added to subscribers list."]
+        else
+          return [res.statusText] 
+      }
+    };
+
+    const onSignupClick = async (e) => {
+      e.preventDefault();
+      if(!validateEmail(email))
+        return toast.error("Invalid email address");
+      handleSave()
+        .then(function(json) {
+          toast.info(json[0])
+        })
+      setEmail("");
+    };
+
     return (
         <div className={`footer footer_area1 ${className ? className : ''}`}>
             <div className="container">
@@ -36,10 +66,10 @@ const FooterArea = ({className}) => {
                         </div>
                         <div className="col-md-6 col-lg-4 offset-lg-2 align-self-center">
                             <div className="signup_form">
-                                <form onSubmit={submitHandler}>
-                                    <input onChange={e => setEmail(e.target.value)} value={email} className="signup"
+                                <form>
+                                    <input onChange={handleChange} value={email} className="signup"
                                            type="email" placeholder="Your email address"/>
-                                    <button type="submit" className="cbtn">sign up</button>
+                                    <button type="submit" className="cbtn" onClick={onSignupClick}>sign up</button>
                                 </form>
                                 <p>We hate spam as much as you do</p>
                             </div>

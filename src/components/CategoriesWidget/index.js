@@ -1,10 +1,28 @@
-import React  from 'react';
+import React, {useEffect, useState}  from 'react';
 import {Link} from "react-router-dom";
 
 import union from '../../doc/img/icon/union.png';
 import category1 from '../../doc/img/categories/category1.jpg';
 
-const CategoriesWidget = ({categories}) => {
+const fetchData = async (url) => {
+  const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
+  const json = await res.json()
+  return json
+};
+
+const CategoriesWidget = () => {
+
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+
+    if (categories.length == 0) {
+        fetchData("http://localhost:4000/api/v1/categories").then(news => {
+          setCategories(news)
+        });
+      }
+      
+    }, [categories]);
 
     return (
         <div className="widget category mb30">

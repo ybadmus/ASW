@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import BreadCrumb from "../../components/BreadCrumb";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
 import {Link} from "react-router-dom";
@@ -6,111 +6,48 @@ import NewsLetter from "../../components/NewsLetter";
 import EntertainmentNews from "../../components/EntertainmentNews";
 import {Fade, Nav, NavItem, TabContent, TabPane} from "reactstrap";
 import BannerSection from "../../components/BannerSection";
-import MostShareWidget from "../../components/MostShareWidget";
 import classnames from 'classnames';
-
-// images
 import banner2 from "../../doc/img/bg/sidebar-1.png";
-import enter1 from '../../doc/img/entertrainment/enter1.jpg';
-import enter2 from '../../doc/img/entertrainment/enter2.jpg';
-import enter3 from '../../doc/img/entertrainment/enter3.jpg';
-import enter4 from '../../doc/img/entertrainment/enter4.jpg';
-import author1 from '../../doc/img/author/author1.png';
 import calendar from '../../doc/img/icon/calendar.png';
+import author1 from '../../doc/img/author/author1.png';
 
-const entertainments = [
-    {
-        image: enter1,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter4,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter1,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter4,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter4,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-];
+const fetchData = async (url) => {
+  const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
+  const json = await res.json()
+  return json
+}
 
 const AboutUsPage = () => {
+    const [businessNews, setBusinessNews] = useState([]);
+    const [entertainmentNews, setEntertainmentNews] = useState([]);
+
+    useEffect(() => {
+
+      if (businessNews.length == 0) {
+        fetchData("http://localhost:4000/api/v1/posts/latest_news_only?page=1&pageSize=10").then(news => {
+          setBusinessNews(news);
+        });
+      }
+
+    }, [businessNews]);
+
+
+    useEffect(() => {
+
+      if (entertainmentNews.length == 0) {
+        fetchData("http://localhost:4000/api/v1/posts/entertainment_news_only?page=1&pageSize=10").then(news => {
+          setEntertainmentNews(news);
+        });
+      }
+
+    }, [entertainmentNews]);
+
     const [activeTab, setActiveTab] = useState('1');
 
     const toggle = tab => {
         if (activeTab !== tab) setActiveTab(tab);
     };
+    
     return (
         <Fragment>
             <BreadCrumb className="shadow5" title="About">
@@ -187,15 +124,15 @@ const AboutUsPage = () => {
                                 <TabContent activeTab={activeTab}>
                                     <TabPane tabId="1">
                                         <Fade in={activeTab === '1'}>
-                                            <div className="row justify-content-center">
-                                                <EntertainmentNews headerHide={true} entertainments={entertainments}/>
+                                            <div className="row">
+                                                <EntertainmentNews headerHide={true} entertainments={businessNews}/>
                                             </div>
                                         </Fade>
                                     </TabPane>
                                     <TabPane tabId="2">
                                         <Fade in={activeTab === '2'}>
-                                            <div className="row justify-content-center">
-                                                <EntertainmentNews headerHide={true} entertainments={entertainments}/>
+                                            <div className="row">
+                                                <EntertainmentNews headerHide={true} entertainments={entertainmentNews}/>
                                             </div>
                                         </Fade>
                                     </TabPane>
@@ -234,8 +171,6 @@ const AboutUsPage = () => {
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4">
-                              <MostShareWidget title="Sports"/>
-
                               <div className="col-lg-12">
                                   <div className="banner2 mb30">
                                       <Link to="/">

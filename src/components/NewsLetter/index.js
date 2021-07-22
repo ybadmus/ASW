@@ -1,12 +1,18 @@
 import React, {useState}  from 'react';
-
+import {toast} from "react-toastify";
 
 const NewsLetter = ({className, input_white, titleClass}) => {
 
     const [email, setEmail] = useState(''); 
     
     const handleChange = (e) => {
+      e.preventDefault();     
       setEmail(e.target.value);
+    }
+
+    const validateEmail = (email) => {
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
     }
   
     const handleSave = async () => {
@@ -26,11 +32,13 @@ const NewsLetter = ({className, input_white, titleClass}) => {
 
     const onSignupClick = async (e) => {
       e.preventDefault();
-      setEmail("");
+      if(!validateEmail(email))
+        return toast.error("Invalid email address");
       handleSave()
         .then(function(json) {
-          console.log(json)
-        })
+          toast.info(json[0])
+        });
+      setEmail("");
     }
   
     return (

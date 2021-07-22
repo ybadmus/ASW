@@ -9,11 +9,19 @@ import {toast} from "react-toastify";
 import scrollIcon from '../../doc/img/icon/scroll.png';
 import black_phone from '../../doc/img/icon/black_phone.png';
 
+const fetchData = async (url) => {
+  const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
+  const json = await res.json()
+  return json
+};
+
 class ContactUsPage extends Component {
     constructor(props) {
         super(props);
         this.validator = new SimpleReactValidator();
     }
+
+    //enquiries
 
     state = {
         name: '',
@@ -29,18 +37,27 @@ class ContactUsPage extends Component {
         })
     };
 
-    submitHandler = e => {
+    submitHandler = async(e) => {
         e.preventDefault();
         if (this.validator.allValid()) {
-            toast.success('You submitted the form and stuff!')
-            this.setState({
-                name: '',
-                subject: '',
-                email: '',
-                phone: '',
-                message: '',
-            });
-            this.validator.hideMessages()
+            const res = await fetch("http://localhost:4000/api/v1/enquiries", { method: 'POST', mode: 'cors', 
+            headers: { 'Access-Control-Allow-Origin':'*', 'Content-Type':'application/json' }, body: JSON.stringify(this.state)});
+            const json = await res.json();
+            json.then(function (success) {
+                this.setState({
+                    name: '',
+                    subject: '',
+                    email: '',
+                    phone: '',
+                    message: '',
+                });
+                this.validator.hideMessages()
+                console.log(success)
+              }, function(error) {
+                console.log(error);
+              }
+            );
+            
         } else {
             toast.error('Please fill the input');
             this.validator.showMessages();

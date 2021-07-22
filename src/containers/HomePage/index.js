@@ -11,13 +11,12 @@ const fetchData = async (url) => {
   const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
   const json = await res.json()
   return json
-}
+};
 
 const HomePage = () => {
 
   const [businessNews, setBusinessNews] = useState([]);
   const [mixArray, setMixArray] = useState([]);
-  const [categories, setCategories] = useState([])
 
   useEffect(() => {
 
@@ -39,18 +38,6 @@ const HomePage = () => {
 
   }, [mixArray]);
 
-  useEffect(() => {
-
-    if (categories.length == 0) {
-      fetchData("http://localhost:4000/api/v1/categories").then(news => {
-        setCategories(news)
-      });
-    }
-    
-  }, [categories]);
-
-
-
   return (
       <Fragment>
  
@@ -69,7 +56,7 @@ const HomePage = () => {
                           <div className="row">
 
                               <div className="col-lg-12">
-                                  <CategoriesWidget categories={categories}/>
+                                  <CategoriesWidget />
                               </div>  
 
                               <div className="col-lg-12">

@@ -19,20 +19,20 @@ const EntertainmentPage = () => {
 
     let [category, setCategory] = useState("");
     let [entertainments, setEntertainments] = useState([]);
-    let [categories, setCategories] = useState([])
     let { id } = useParams();
 
     useEffect(() => {
 
       if (entertainments.length == 0) {
         fetchData(`http://localhost:4000/api/v1/categories/${id}/posts`).then(news => {
-          setCategory(news[0].category)
+          if(news.length > 0)
+            setCategory(news[0].category)
           setEntertainments(news);
         });
       }
   
     }, [entertainments]);
-  
+
     return (
         <Fragment>
             <BreadCrumb title={category}/>
