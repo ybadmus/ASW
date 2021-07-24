@@ -5,7 +5,6 @@ import NewsLetter from "../../components/NewsLetter";
 import FollowUs from "../../components/FollowUs";
 import SimpleReactValidator from 'simple-react-validator';
 import {toast} from "react-toastify";
-
 import scrollIcon from '../../doc/img/icon/scroll.png';
 import black_phone from '../../doc/img/icon/black_phone.png';
 
@@ -20,8 +19,6 @@ class ContactUsPage extends Component {
         super(props);
         this.validator = new SimpleReactValidator();
     }
-
-    //enquiries
 
     state = {
         name: '',
@@ -42,22 +39,19 @@ class ContactUsPage extends Component {
         if (this.validator.allValid()) {
             const res = await fetch("http://localhost:4000/api/v1/enquiries", { method: 'POST', mode: 'cors', 
             headers: { 'Access-Control-Allow-Origin':'*', 'Content-Type':'application/json' }, body: JSON.stringify(this.state)});
-            const json = await res.json();
-            json.then(function (success) {
-                this.setState({
-                    name: '',
-                    subject: '',
-                    email: '',
-                    phone: '',
-                    message: '',
-                });
-                this.validator.hideMessages()
-                console.log(success)
-              }, function(error) {
-                console.log(error);
-              }
-            );
-            
+            if(res.status == 200) {
+              toast.success('Enquiry successfully sent');
+              this.setState({
+                name: '',
+                subject: '',
+                email: '',
+                phone: '',
+                message: '',
+              });
+              this.validator.hideMessages()
+            }
+            else
+              toast.error('Error sending enquiry');
         } else {
             toast.error('Please fill the input');
             this.validator.showMessages();
@@ -139,7 +133,7 @@ class ContactUsPage extends Component {
                         </div>
                     </div>
                 </div>
-                {/*contact form area*/}
+
                 <div className="contact_form padding-bottom">
                     <div className="container">
                         <div className="row">

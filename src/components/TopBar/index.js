@@ -29,7 +29,7 @@ const TopBar = ({className, dark}) => {
                 <div className="row">
                     <div className="col-md-8 align-self-center">
                         <div className={`trancarousel_area ${dark ? 'white' : ''}`}>
-                            <p className="trand">Tranding</p>
+                            <p className="trand">Trending</p>
                             <div className="nav_style1">
                                 <Swiper getSwiper={setSwiper} className="trancarousel" {...params}>
                                     <div className="trancarousel_item">
