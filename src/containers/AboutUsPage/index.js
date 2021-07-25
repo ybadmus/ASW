@@ -72,7 +72,6 @@ const AboutUsPage = () => {
                                     The Times in 1999 covering Mayor Rudolph W. Giuliani and then the Sept. 11,
                                     2001,
                                     attacks.</p>
-                                <br/>
                                 <p>He is a three-time winner of the Pulitzer Prize for explanatory reporting,
                                     investigative reporting and as part of team for foreign reporting. He
                                     previously

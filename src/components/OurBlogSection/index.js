@@ -28,6 +28,27 @@ const blog = [
         title: 'There may be no consoles in the future ea exec says',
         description: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
     },
+    {
+      photo: video4,
+      category: 'TECHNOLOGY',
+      date: 'March 26, 2020',
+      title: 'There may be no consoles in the future ea exec says',
+      description: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
+    },
+    {
+        photo: video1,
+        category: 'TECHNOLOGY',
+        date: 'March 26, 2020',
+        title: 'There may be no consoles in the future ea exec says',
+        description: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
+    },
+    {
+        photo: video2,
+        category: 'TECHNOLOGY',
+        date: 'March 26, 2020',
+        title: 'There may be no consoles in the future ea exec says',
+        description: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
+    },
 ];
 const OurBlogSection = ({dark}) => {
     return (
@@ -36,7 +57,7 @@ const OurBlogSection = ({dark}) => {
                 <div className="row">
                     <div className="col-12">
                         <div className="heading">
-                            <h2 className="widget-title">Our Latest Blog</h2>
+                            <h2 className="widget-title">Related Stories</h2>
                         </div>
                     </div>
                 </div>

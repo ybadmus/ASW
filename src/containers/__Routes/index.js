@@ -41,17 +41,17 @@ const Routes = () => {
                 component={NotFoundPage}/>
             <PrivateRoute
                 exact
-                path="/post1"
+                path="/post/:id"
                 parentClass="theme-1"
                 component={PostOnePage}/>
             <PrivateRoute
                 exact
-                path="/video_post1"
+                path="/video_post/:id"
                 parentClass="theme-1"
                 component={VideoPostOnePage}/>
             <PrivateRoute
                 exact
-                path="/audio_post1"
+                path="/audio_post/:id"
                 parentClass="theme-1"
                 component={AudioPostOnePage}/>
 

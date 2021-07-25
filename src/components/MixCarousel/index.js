@@ -58,10 +58,10 @@ const MixCarousel = ({className, dark, mixArray}) => {
                   </div>
               </div>
               <div className="single_post_text">
-                  <div className="meta"><Link to="/">{item.category}</Link>
+                  <div className="meta"><Link to="#">{item.category}</Link>
                       <Link to="#">{item.date}</Link>
                   </div>
-                  <h4><Link to="/video_post1">{item.title}</Link></h4>
+                  <h4><Link to={`/post/${item.id}`}>{item.title}</Link></h4>
               </div>
           </div>
         )

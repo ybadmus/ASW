@@ -8,12 +8,12 @@ const NewsLetter = ({className, input_white, titleClass}) => {
     const handleChange = (e) => {
       e.preventDefault();     
       setEmail(e.target.value);
-    }
+    };
 
     const validateEmail = (email) => {
       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
-    }
+    };
   
     const handleSave = async () => {
       let data = {ip_address: '127.0.0.1', email_address: email }
@@ -24,11 +24,11 @@ const NewsLetter = ({className, input_white, titleClass}) => {
         return json
       } catch (error) {
         if(res.ok)
-          return ["Email successfully added to subscribers list."]
+          return ["Email successfully added."]
         else
           return [res.statusText] 
       }
-    }
+    };
 
     const onSignupClick = async (e) => {
       e.preventDefault();
@@ -39,7 +39,7 @@ const NewsLetter = ({className, input_white, titleClass}) => {
           toast.info(json[0])
         });
       setEmail("");
-    }
+    };
   
     return (
         <div className={`box widget news_letter mb30 ${className ? className : ''}`}>
