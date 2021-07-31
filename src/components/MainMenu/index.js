@@ -1,9 +1,15 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import FontAwesome from "../uiStyle/FontAwesome";
 import tempIcon from '../../doc/img/icon/temp.png';
 import {Link, NavLink} from "react-router-dom";
 import SearchModal from "../SearchModal";
 import SidebarMenu from "../SidebarMenu";
+
+const fetchData = async (url) => {
+  const res = await fetch(url, { mode: "cors" })
+  const json = await res.json()
+  return json;
+};
 
 const menus = [
     {
@@ -23,29 +29,26 @@ const menus = [
     }
 ];
 
-const menusDark = [
-    {
-        id: 1,
-        linkText: 'Home',
-        link: '/dark/world'
-    },
-    {
-        id: 2,
-        linkText: 'Contact Us',
-        link: '/dark/contact'
-    },
-    {
-        id: 3,
-        linkText: 'About',
-        link: '/dark/contact'
-    }
-];
-
-const MainMenu = ({className, dark}) => {
+const MainMenu = () => {
     const [searchShow, setSearchShow] = useState(false);
     const [sideShow, setSideShow] = useState(false);
+    const [weather, setWeather] = useState([]);
+    const [city, setCity] = useState([]);
 
-    const arr = dark ? menusDark : menus;
+    useEffect(() => {
+
+      if (weather.length == 0) {
+        const cities = ["Winneba", "Bawjiase", "Swedru", "Kasoa", "Senya Beraku", "Accra"];
+        fetchData(`https://api.openweathermap.org/data/2.5/weather?q=${cities[Math.floor(Math.random()*cities.length)]}&appid=d5af63af4205838bfa1645e4e81226d1`).then(weather => {
+
+          setCity(weather.name);
+          setWeather(Math.round((weather.main.temp - 273.15) * 100) / 100);
+        });
+      }
+
+    }, [weather]);
+
+    const arr = menus;
     return (
         <Fragment>
             <div className="main-nav.dark-bg" id="header">  
@@ -121,8 +124,8 @@ const MainMenu = ({className, dark}) => {
                                             <div className="temp_icon">
                                                 <img src={tempIcon} alt="temp icon"/>
                                             </div>
-                                            <h3 className="temp_count">13</h3>
-                                            <p>Awutu Bawjiase</p>
+                                            <h3 className="temp_count">{weather}</h3>
+                                            <p>{city}</p>
                                         </div>
                                     </div>
                                 </div>
