@@ -64,7 +64,7 @@ const AboutUsPage = () => {
                                 </div>
                                 <div className="author_content"><Link to="/">Awutu Senya Watch</Link>
                                     <ul className="inline">
-                                        <li>News & Media Website,</li>
+                                        <li>News Agency,</li>
                                         <li>Since: December 21, 2020</li>
                                     </ul>
                                 </div>
