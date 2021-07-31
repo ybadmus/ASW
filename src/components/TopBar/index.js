@@ -6,7 +6,7 @@ import FontAwesome from "../uiStyle/FontAwesome";
 const fetchData = async (url) => {
   const res = await fetch(url, { mode: "cors" })
   const json = await res.json()
-  console.log(json)
+  return json;
 };
 
 const TopBar = ({className, dark}) => {
@@ -18,7 +18,9 @@ const TopBar = ({className, dark}) => {
 
       if (timeInGhana.length == 0) {
         fetchData("https://worldtimeapi.org/api/timezone/Africa/Accra").then(time => {
-          setTimeInGhana(time);
+          const date = new Date(time.datetime.split('.')[0])
+          const date_string = date.toLocaleDateString("en-US", {weekday: "long", year: "numeric", month: "long", day: "numeric"});
+          setTimeInGhana(date_string);
         });
       }
 
