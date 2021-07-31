@@ -42,7 +42,7 @@ const MainMenu = () => {
         fetchData(`https://api.openweathermap.org/data/2.5/weather?q=${cities[Math.floor(Math.random()*cities.length)]}&appid=d5af63af4205838bfa1645e4e81226d1`).then(weather => {
 
           setCity(weather.name);
-          setWeather(Math.round((weather.main.temp - 273.15) * 100) / 100);
+          setWeather(Math.round((weather.main.temp - 273.15) * 10) / 10);
         });
       }
 
