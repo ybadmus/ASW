@@ -7,6 +7,7 @@ import EntertainmentNews from "../../components/EntertainmentNews";
 import {Fade, Nav, NavItem, TabContent, TabPane} from "reactstrap";
 import BannerSection from "../../components/BannerSection";
 import classnames from 'classnames';
+import FollowUs from "../../components/FollowUs";
 import banner2 from "../../doc/img/bg/sidebar-1.png";
 import calendar from '../../doc/img/icon/calendar.png';
 import author1 from '../../doc/img/author/author1.png';
@@ -170,17 +171,15 @@ const AboutUsPage = () => {
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4">
-                              <div className="col-lg-12">
-                                  <div className="banner2 mb30">
-                                      <Link to="/">
-                                          <img src={banner2} alt="thumb"/>
-                                      </Link>
-                                  </div>
-                              </div>
+                          <FollowUs title="Follow Us"/>
 
-                              <div className="col-lg-12">
-                                  <NewsLetter/>
-                              </div>
+                          <div className="banner2 mb30">
+                              <Link to="/">
+                                  <img src={banner2} alt="thumb"/>
+                              </Link>
+                          </div>
+
+                          <NewsLetter/>
                         </div>
                     </div>
                 </div>

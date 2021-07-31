@@ -61,7 +61,7 @@ const TopBar = ({className, dark}) => {
                         <div className={`trancarousel_area ${dark ? 'white' : ''}`}>
                             <p className="trand">Trending</p>
                             <div className="nav_style1">
-                                <Swiper getSwiper={setSwiper} className="trancarousel" {...params}>
+                                <Swiper getSwiper={setSwiper} className="trancarousel" {...params} shouldSwiperUpdate>
                                   {trending.map((item, i) => (
                                       <div key={i} className="trancarousel_item">
                                           <p><Link to={`/post/${item.id}`}>{item.title}</Link></p>
