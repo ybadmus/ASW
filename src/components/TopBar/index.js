@@ -11,8 +11,8 @@ const fetchData = async (url) => {
 
 const TopBar = ({className, dark}) => {
     const [swiper, setSwiper] = useState(null);
-
-    const [timeInGhana, setTimeInGhana] = useState([]);
+    const [timeInGhana, setTimeInGhana] = useState("");
+    const [trending, setTrending] = useState([]);
 
     useEffect(() => {
 
@@ -25,6 +25,16 @@ const TopBar = ({className, dark}) => {
       }
 
     }, [setTimeInGhana]);
+
+    useEffect(() => {
+
+      if (trending.length == 0) {
+        fetchData("http://localhost:4000/api/v1/posts/trending").then(trending => {
+          setTrending(trending);
+        });
+      }
+
+    }, [setTrending]);
 
     const goNext = () => {
         if (swiper !== null) {
@@ -52,21 +62,11 @@ const TopBar = ({className, dark}) => {
                             <p className="trand">Trending</p>
                             <div className="nav_style1">
                                 <Swiper getSwiper={setSwiper} className="trancarousel" {...params}>
-                                    <div className="trancarousel_item">
-                                        <p><Link to="/">Top 10 Best Movies of 2018 So Far: Great Movies To Watch
-                                            Now</Link>
-                                        </p>
-                                    </div>
-                                    <div className="trancarousel_item">
-                                        <p><Link to="/">Top 10 Best Movies of 2018 So Far: Great Movies To Watch
-                                            Now</Link>
-                                        </p>
-                                    </div>
-                                    <div className="trancarousel_item">
-                                        <p><Link to="/">Top 10 Best Movies of 2018 So Far: Great Movies To Watch
-                                            Now</Link>
-                                        </p>
-                                    </div>
+                                  {trending.map((item, i) => (
+                                      <div key={i} className="trancarousel_item">
+                                          <p><Link to={`/post/${item.id}`}>{item.title}</Link></p>
+                                      </div>
+                                  ))}
                                 </Swiper>
                                 <div className="navBtns">
                                     <button className="navBtn prevBtn" onClick={goPrev}><FontAwesome name="angle-left"/>
