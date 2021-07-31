@@ -26,6 +26,8 @@ const setDate = (date) => {
 const PostOnePage = () => {
 
     const [post, setPost] = useState([]);
+    const [nextPost, setNextPost] = useState([]);
+    const [previousPost, setPreviousPost] = useState([]);
     const [relatedStories, setRelatedStories] = useState([]);
     const [category, setCategory] = useState([]);
     
@@ -34,9 +36,10 @@ const PostOnePage = () => {
       if (post.length == 0) {
         fetchData("http://localhost:4000/api/v1/posts/11").then(news => {
           setCategory(news.category_name)
-          console.log(news.related_stories);
           setRelatedStories(news.related_stories);
           setPost(news);
+          setNextPost(news.next);
+          setPreviousPost(news.previous);
         });
       }
 
@@ -89,7 +92,7 @@ const PostOnePage = () => {
                             <div className="space-40"/>
                             <div className="border_black"/>
                             <div className="space-40"/>
-                            <PostOnePagination/>
+                            <PostOnePagination next={nextPost} previous={previousPost}/>
                         </div>
                         <div className="col-md-6 col-lg-4">
                             <FollowUs title="Follow Us"/>
