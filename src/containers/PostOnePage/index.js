@@ -26,12 +26,16 @@ const setDate = (date) => {
 const PostOnePage = () => {
 
     const [post, setPost] = useState([]);
+    const [relatedStories, setRelatedStories] = useState([]);
+    const [category, setCategory] = useState([]);
     
     useEffect(() => {
 
       if (post.length == 0) {
         fetchData("http://localhost:4000/api/v1/posts/11").then(news => {
-          console.log(news);
+          setCategory(news.category_name)
+          console.log(news.related_stories);
+          setRelatedStories(news.related_stories);
           setPost(news);
         });
       }
@@ -100,7 +104,7 @@ const PostOnePage = () => {
                 </div>
             </div>
             <div className="space-60"/>
-            <OurBlogSection/>
+            <OurBlogSection category={category} relatedStories={relatedStories}/>
             <BannerSection/>
         </Fragment>
     )
