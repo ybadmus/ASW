@@ -1,10 +1,28 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import Swiper from 'react-id-swiper';
 import FontAwesome from "../uiStyle/FontAwesome";
 
+const fetchData = async (url) => {
+  const res = await fetch(url, { mode: "cors" })
+  const json = await res.json()
+  console.log(json)
+};
+
 const TopBar = ({className, dark}) => {
     const [swiper, setSwiper] = useState(null);
+
+    const [timeInGhana, setTimeInGhana] = useState([]);
+
+    useEffect(() => {
+
+      if (timeInGhana.length == 0) {
+        fetchData("https://worldtimeapi.org/api/timezone/Africa/Accra").then(time => {
+          setTimeInGhana(time);
+        });
+      }
+
+    }, [setTimeInGhana]);
 
     const goNext = () => {
         if (swiper !== null) {
@@ -61,7 +79,7 @@ const TopBar = ({className, dark}) => {
                     <div className="col-md-4 align-self-center">
                         <div className="top_date_social text-right">
                             <div className={`paper_date ${dark ? 'white' : ''}`}>
-                                <p>Thursday, March 26, 2020</p>
+                                <p>{timeInGhana}</p>
                             </div>
                             <div className={`social1 ${dark ? 'white' : ''}`}>
                                 <ul className="inline">
