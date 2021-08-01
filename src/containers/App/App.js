@@ -8,6 +8,9 @@ const App = (props) => {
     const {error, success} = props;
     if (error) toast.error(error);
     if (success) toast.success(success);
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    }
     return (
         <Fragment>
             {props.loading && <h1>loading...</h1>}

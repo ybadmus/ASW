@@ -22,7 +22,7 @@ const OurBlogSection = ({dark, relatedStories, category}) => {
                         <div key={i} className="col-md-6 col-lg-4">
                             <div className="single_post post_type3 mb30">
                                 <div className="post_img">
-                                    <Link to="/">
+                                    <Link to={`/post/${item.id}`}>
                                         <img src={item.story_image} alt="thumb"/>
                                     </Link>
                                 </div>

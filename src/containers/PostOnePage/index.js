@@ -5,6 +5,7 @@ import NewsLetter from "../../components/NewsLetter";
 import FollowUs from "../../components/FollowUs";
 import BannerSection from "../../components/BannerSection";
 import PostOnePagination from "../../components/PostOnePagination";
+import {useParams} from "react-router-dom";
 
 import banner2 from "../../doc/img/bg/sidebar-1.png";
 import author2 from '../../doc/img/author/author2.png';
@@ -25,6 +26,8 @@ const setDate = (date) => {
 
 const PostOnePage = () => {
 
+    let { id } = useParams();
+
     const [post, setPost] = useState([]);
     const [nextPost, setNextPost] = useState([]);
     const [previousPost, setPreviousPost] = useState([]);
@@ -32,18 +35,19 @@ const PostOnePage = () => {
     const [category, setCategory] = useState([]);
     
     useEffect(() => {
-
-      if (post.length == 0) {
-        fetchData("http://localhost:4000/api/v1/posts/11").then(news => {
+      //add other conditions to reduce the rate of calls made here.
+      if (id) {
+        fetchData(`http://localhost:4000/api/v1/posts/${id}`).then(news => {
           setCategory(news.category_name)
           setRelatedStories(news.related_stories);
           setPost(news);
           setNextPost(news.next);
           setPreviousPost(news.previous);
         });
+        window.scrollTo(0, 0);
       }
 
-    }, [post]);
+    }, [id]);
 
     return (
         <Fragment>
