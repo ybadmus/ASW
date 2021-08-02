@@ -29,6 +29,7 @@ const EntertainmentPage = () => {
             setCategory(news[0].category)
           setEntertainments(news);
         });
+        window.scrollTo(0, 0);
       }
   
     }, [entertainments]);
