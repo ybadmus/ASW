@@ -144,7 +144,7 @@ class ContactUsPage extends Component {
                                         frameBorder={0}
                                         height="450px"
                                         width="100%"
-                                        src="https://maps.google.com/maps?q=First%20close%20Avenue,%20Airport,%20Accra&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                        src="https://maps.google.com/maps?q=Dansoman,%20Accra&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                         allowFullScreen/>
                                 </div>
                             </div>

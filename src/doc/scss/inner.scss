@@ -73,12 +73,15 @@
 
 }
 
+.contact_form iframe {
+  border-radius: 5px;
+}
+
 .single_contact_box {
   margin-bottom: 30px;
   padding-left: 50px;
   border: 1px solid silver;
   border-radius: 5px;
-  background: #f9f9f9;
 
   .contact_title {
     position: relative;
