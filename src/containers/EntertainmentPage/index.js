@@ -8,6 +8,7 @@ import FollowUs from "../../components/FollowUs";
 import EntertainmentNews from "../../components/EntertainmentNews";
 import banner2 from "../../doc/img/bg/sidebar-1.png";
 import BannerSection from "../../components/BannerSection";
+import ClipLoader from "react-spinners/DotLoader";
 
 const fetchData = async (url) => {
   const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
@@ -19,6 +20,7 @@ const EntertainmentPage = () => {
 
     let [category, setCategory] = useState("");
     let [entertainments, setEntertainments] = useState([]);
+    const [loading, setLoading] = useState(true);
     let { id } = useParams();
 
     useEffect(() => {
@@ -28,11 +30,15 @@ const EntertainmentPage = () => {
           if(news.length > 0)
             setCategory(news[0].category)
           setEntertainments(news);
+          setLoading(false);
         });
         window.scrollTo(0, 0);
       }
   
     }, [entertainments]);
+    
+    if (loading) 
+      return ( <ClipLoader color={"black"} loading={loading} css={"display: block;margin: 10% auto;"} size={100} /> )
 
     return (
         <Fragment>

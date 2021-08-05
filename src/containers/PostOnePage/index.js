@@ -11,7 +11,7 @@ import banner2 from "../../doc/img/bg/sidebar-1.png";
 import author2 from '../../doc/img/author/author2.png';
 
 import OurBlogSection from "../../components/OurBlogSection";
-
+import ClipLoader from "react-spinners/DotLoader";
 
 const fetchData = async (url) => {
   const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
@@ -33,6 +33,7 @@ const PostOnePage = () => {
     const [previousPost, setPreviousPost] = useState([]);
     const [relatedStories, setRelatedStories] = useState([]);
     const [category, setCategory] = useState([]);
+    const [loading, setLoading] = useState(true);
     
     useEffect(() => {
       //add other conditions to reduce the rate of calls made here.
@@ -43,11 +44,15 @@ const PostOnePage = () => {
           setPost(news);
           setNextPost(news.next);
           setPreviousPost(news.previous);
+          setLoading(false);
         });
         window.scrollTo(0, 0);
       }
 
     }, [id]);
+
+    if (loading) 
+      return ( <ClipLoader color={"black"} loading={loading} css={"display: block;margin: 10% auto;"} size={100} /> )
 
     return (
         <Fragment>
