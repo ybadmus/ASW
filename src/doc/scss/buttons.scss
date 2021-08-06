@@ -204,6 +204,23 @@ input.showmore {
   text-align: center
 }
 
+.loadmore {
+  font-size: 1.2rem;
+  color: white;
+  background: #1091FF;
+  border: 1px solid #1091FF;
+  border-radius: 3px;
+  width: 100%;
+  padding: 10px;
+  text-align: center
+}
+
+.loadmore:hover {
+  background:white;
+  color: black;
+  border: 1px solid silver;
+}
+
 a.readmore3,
 button.readmore3,
 input.readmore3 {
