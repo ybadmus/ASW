@@ -7,23 +7,46 @@ import NewsLetter from "../../components/NewsLetter";
 import CategoriesWidget from "../../components/CategoriesWidget";
 import banner2 from '../../doc/img/bg/sidebar-1.png';
 import ClipLoader from "react-spinners/DotLoader";
-
-const fetchData = async (url) => {
-  const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
-  const json = await res.json()
-  return json
-};
+import FontAwesome from "../../components/uiStyle/FontAwesome";
 
 const HomePage = () => {
 
   const [businessNews, setBusinessNews] = useState([]);
+  const [loadMoreLink, setLoadMoreLink] = useState([]);
   const [mixArray, setMixArray] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  const fetchPosts = async (url) => {
+    const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
+    setLoadMoreLink(removeAngelBracket(res.headers.get('X-Load-More')));
+    const json = await res.json()
+    return json;
+  };
+
+  const fetchData = async (url) => {
+    const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
+    const json = await res.json()
+    return json
+  };
+
+  const removeAngelBracket = url => {
+    return url.split(';')[0].slice(1, -1);
+  };
+
+  const loadMoreNews = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    
+    fetchPosts(loadMoreLink).then(news => {
+        setBusinessNews(news);
+        setLoading(false);
+    });
+  };
 
   useEffect(() => {
 
     if (businessNews.length == 0) {
-      fetchData("http://localhost:4000/api/v1/posts").then(news => {
+      fetchPosts("http://localhost:4000/api/v1/posts").then(news => {
         setBusinessNews(news);
         setLoading(false);
       });
@@ -56,7 +79,17 @@ const HomePage = () => {
               <div className="container">
                   <div className="row">
                       <div className="col-lg-8">
-                         <BusinessNews businessNews={businessNews}/> 
+                        <BusinessNews businessNews={businessNews} loadMoreLink={loadMoreLink}/> 
+                        
+                        <div className="space-20"/>
+
+                        <div className="row">
+                          <div className="col-12 col-md-8">
+                            <button type="button" onClick={loadMoreNews} className="loadmore"><span aria-hidden="true"><FontAwesome name="refresh"/></span> Load more</button>
+                          </div>
+                        </div>
+
+                        <div className="space-50"/>
                       </div>
 
                       <div className="col-lg-4">

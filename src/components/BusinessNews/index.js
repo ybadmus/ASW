@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import FontAwesome from "../../components/uiStyle/FontAwesome";
 
 const BusinessNews = ({businessNews, headerHide}) => {
   
@@ -37,16 +36,6 @@ const BusinessNews = ({businessNews, headerHide}) => {
                                     </div>
                                 </div>
                             ))}
-
-                              <div className="space-20"/>
-
-                              <div className="row">
-                                <div className="col-12 col-md-8">
-                                  <Link to="/" className="loadmore"><span aria-hidden="true"><FontAwesome name="refresh"/></span> Load more</Link>
-                                </div>
-                             </div>
-
-                             <div className="space-50"/>
                         </div>
                     </div>
                 </div>
