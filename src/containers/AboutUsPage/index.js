@@ -13,21 +13,138 @@ import calendar from '../../doc/img/icon/calendar.png';
 import author1 from '../../doc/img/author/author1.png';
 import ClipLoader from "react-spinners/DotLoader";
 
-const fetchData = async (url) => {
-  const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
-  const json = await res.json()
-  return json
-}
-
 const AboutUsPage = () => {
     const [businessNews, setBusinessNews] = useState([]);
     const [entertainmentNews, setEntertainmentNews] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [activeTab, setActiveTab] = useState('1');
+
+    const [loadLinks, setLoadLinks] = useState([]);
+    const [pagedCount, setNewsCount] = useState(1);
+
+    const [loadLinks2, setLoadLinks2] = useState([]);
+    const [pagedCount2, setNewsCount2] = useState(1);
+
+    const fetchData = async (url) => {
+      const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
+      const json = await res.json();
+      setLoadLinks(res.headers.get('Link'));
+      setNewsCount(Math.ceil(res.headers.get('X-Total-Count')/10))
+      return json
+    };
+
+    const fetchData2 = async (url) => {
+      const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
+      const json = await res.json();
+      setLoadLinks2(res.headers.get('Link'));
+      setNewsCount2(Math.ceil(res.headers.get('X-Total-Count')/10))
+      return json
+    };
+
+    const removeAngelBracket = url => {
+      return url.split(';')[0].slice(1, -1);
+    };
+
+    const loadPagedNews2 = async (param) => {
+      const listOfLinks = loadLinks2.split(", ");
+      let url = "";
+
+      switch(param) {
+        case "first":
+          setLoading(true);
+          url = removeAngelBracket(listOfLinks[0].split("; ")[0]);
+          fetchData(url).then(news => {
+            setBusinessNews(news);
+            setLoading(false);
+          });
+          break;
+        case "prev":
+          setLoading(true);
+          url = removeAngelBracket(listOfLinks[1].split("; ")[0]);
+          fetchData(url).then(news => {
+            setBusinessNews(news);
+            setLoading(false);
+          });
+          break;
+        case "next":
+          setLoading(true);
+          url = removeAngelBracket(listOfLinks[2].split("; ")[0]);
+          fetchData(url).then(news => {
+            setBusinessNews(news);
+            setLoading(false);
+          });
+          break;
+        case "last":
+          setLoading(true);
+          url = removeAngelBracket(listOfLinks[3].split("; ")[0]);
+          fetchData(url).then(news => {
+            setBusinessNews(news);
+            setLoading(false);
+          });
+          break;  
+        default:
+          setLoading(true);
+          url = removeAngelBracket(listOfLinks[0].split("; ")[0]);
+          fetchData(url).then(news => {
+            setBusinessNews(news);
+            setLoading(false);
+          });
+          break;
+      }
+    };
+
+    const loadPagedNews = async (param) => {
+      const listOfLinks = loadLinks.split(", ");
+      let url = "";
+
+      switch(param) {
+        case "first":
+          setLoading(true);
+          url = removeAngelBracket(listOfLinks[0].split("; ")[0]);
+          fetchData(url).then(news => {
+            setEntertainmentNews(news);
+            setLoading(false);
+          });
+          break;
+        case "prev":
+          setLoading(true);
+          url = removeAngelBracket(listOfLinks[1].split("; ")[0]);
+          fetchData(url).then(news => {
+            setEntertainmentNews(news);
+            setLoading(false);
+          });
+          break;
+        case "next":
+          setLoading(true);
+          url = removeAngelBracket(listOfLinks[2].split("; ")[0]);
+          fetchData(url).then(news => {
+            setEntertainmentNews(news);
+            setLoading(false);
+          });
+          break;
+        case "last":
+          setLoading(true);
+          url = removeAngelBracket(listOfLinks[3].split("; ")[0]);
+          fetchData(url).then(news => {
+            setEntertainmentNews(news);
+            setLoading(false);
+          });
+          break;  
+        default:
+          setLoading(true);
+          url = removeAngelBracket(listOfLinks[0].split("; ")[0]);
+          fetchData(url).then(news => {
+            setEntertainmentNews(news);
+            setLoading(false);
+          });
+          break;
+      }
+    };
 
     useEffect(() => {
 
       if (businessNews.length == 0) {
-        fetchData("http://localhost:4000/api/v1/posts/latest_news_only?page=1&pageSize=10").then(news => {
+        fetchData2("http://localhost:4000/api/v1/posts/latest_news").then(news => {
           setBusinessNews(news);
           setLoading(false);
         });
@@ -35,11 +152,10 @@ const AboutUsPage = () => {
 
     }, [businessNews]);
 
-
     useEffect(() => {
 
       if (entertainmentNews.length == 0) {
-        fetchData("http://localhost:4000/api/v1/posts/entertainment_news_only?page=1&pageSize=10").then(news => {
+        fetchData("http://localhost:4000/api/v1/posts/entertainment_news").then(news => {
           setEntertainmentNews(news);
           setLoading(false);
         });
@@ -47,12 +163,9 @@ const AboutUsPage = () => {
 
     }, [entertainmentNews]);
 
-    const [activeTab, setActiveTab] = useState('1');
-
     const toggle = tab => {
         if (activeTab !== tab) setActiveTab(tab);
     };
-
     
     if (loading) 
       return ( <ClipLoader color={"black"} loading={loading} css={"display: block;margin: 10% auto;"} size={100} /> )
@@ -142,22 +255,22 @@ const AboutUsPage = () => {
                                                       <nav aria-label="Page navigation example">
                                                           <ul className="pagination">
                                                               <li className="page-item">
-                                                                  <Link className="page-link" to="/" aria-label="Previous">
+                                                                  <Link className="page-link" to="#" aria-label="Previous" onClick={() => loadPagedNews("prev")}>
                                                                               <span aria-hidden="true"><FontAwesome
                                                                                   name="caret-left"/></span>
                                                                   </Link>
                                                               </li>
                                                               <li className="page-item">
-                                                                  <Link className="page-link" to="/">1</Link>
+                                                                  <Link className="page-link" to="#" onClick={() => loadPagedNews("first")}>1</Link>
                                                               </li>
                                                               <li className="page-item">
-                                                                  <Link className="page-link" to="/">..</Link>
+                                                                  <Link className="page-link" to="#">..</Link>
                                                               </li>
                                                               <li className="page-item">
-                                                                  <Link className="page-link" to="/">5</Link>
+                                                                  <Link className="page-link" to="#" onClick={() => loadPagedNews("last")}>{pagedCount}</Link>
                                                               </li>
                                                               <li className="page-item">
-                                                                  <Link className="page-link" to="/" aria-label="Next">
+                                                                  <Link className="page-link" to="#" aria-label="Next" onClick={() => loadPagedNews("next")}>
                                                                               <span aria-hidden="true"><FontAwesome
                                                                                   name="caret-right"/></span>
                                                                   </Link>
@@ -181,22 +294,22 @@ const AboutUsPage = () => {
                                                       <nav aria-label="Page navigation example">
                                                           <ul className="pagination">
                                                               <li className="page-item">
-                                                                  <Link className="page-link" to="/" aria-label="Previous">
+                                                                  <Link className="page-link" to="#" aria-label="Previous" onClick={() => loadPagedNews2("prev")}>
                                                                               <span aria-hidden="true"><FontAwesome
                                                                                   name="caret-left"/></span>
                                                                   </Link>
                                                               </li>
                                                               <li className="page-item">
-                                                                  <Link className="page-link" to="/">1</Link>
+                                                                  <Link className="page-link" to="#" onClick={() => loadPagedNews2("first")}>1</Link>
                                                               </li>
                                                               <li className="page-item">
-                                                                  <Link className="page-link" to="/">..</Link>
+                                                                  <Link className="page-link" to="#">..</Link>
                                                               </li>
                                                               <li className="page-item">
-                                                                  <Link className="page-link" to="/">5</Link>
+                                                                  <Link className="page-link" to="#" onClick={() => loadPagedNews2("last")}>{pagedCount2}</Link>
                                                               </li>
                                                               <li className="page-item">
-                                                                  <Link className="page-link" to="/" aria-label="Next">
+                                                                  <Link className="page-link" to="#" aria-label="Next" onClick={() => loadPagedNews2("next")}>
                                                                               <span aria-hidden="true"><FontAwesome
                                                                                   name="caret-right"/></span>
                                                                   </Link>
