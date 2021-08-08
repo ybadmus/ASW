@@ -96,7 +96,8 @@ const PostOnePage = () => {
                             <div className="space-30"/>
 
                             <p dangerouslySetInnerHTML={{__html: post.description}}></p>
-
+                            <div className="space-20"/>
+                            <p>Source: <b>{post.source}</b></p>
                             <div className="space-40"/>
                             <div className="border_black"/>
                             <div className="space-40"/>
