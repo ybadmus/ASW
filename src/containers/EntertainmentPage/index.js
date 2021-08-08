@@ -118,6 +118,7 @@ const EntertainmentPage = () => {
                                 </div>
                             </div>
                             <div className="row">
+                            {pagedCount > 1 &&
                                 <div className="col-12">
                                     <div className="cpagination">
                                         <nav aria-label="Page navigation example">
@@ -147,6 +148,7 @@ const EntertainmentPage = () => {
                                         </nav>
                                     </div>
                                 </div>
+                            }
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4">

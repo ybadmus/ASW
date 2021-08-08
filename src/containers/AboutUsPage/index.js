@@ -189,15 +189,7 @@ const AboutUsPage = () => {
                                         <li>Since: December 21, 2020</li>
                                     </ul>
                                 </div>
-                                <p>QuomodoSoft is an investigative reporter for Newspark, based in Bangladesh. He
-                                    started at
-                                    The Times in 1999 covering Mayor Rudolph W. Giuliani and then the Sept. 11,
-                                    2001,
-                                    attacks.</p>
-                                <p>He is a three-time winner of the Pulitzer Prize for explanatory reporting,
-                                    investigative reporting and as part of team for foreign reporting. He
-                                    previously
-                                    worked at The Bangladesh Post and The Hartford Courant.</p>
+                                <p>QuomodoSoft is an investigative reporter for Newspark, based in Bangladesh. He started at The Times in 1999 covering Mayor Rudolph W. Giuliani and then the Sept. 11, 2001, attacks. He is a three-time winner of the Pulitzer Prize for explanatory reporting, investigative reporting and as part of team for foreign reporting. He previously worked at The Bangladesh Post and The Hartford Courant.</p>
                             </div>
                         </div>
                     </div>
@@ -250,35 +242,37 @@ const AboutUsPage = () => {
                                             </div>
 
                                             <div className="row">
-                                              <div className="col-12">
-                                                  <div className="cpagination">
-                                                      <nav aria-label="Page navigation example">
-                                                          <ul className="pagination">
-                                                              <li className="page-item">
-                                                                  <Link className="page-link" to="#" aria-label="Previous" onClick={() => loadPagedNews("prev")}>
-                                                                              <span aria-hidden="true"><FontAwesome
-                                                                                  name="caret-left"/></span>
-                                                                  </Link>
-                                                              </li>
-                                                              <li className="page-item">
-                                                                  <Link className="page-link" to="#" onClick={() => loadPagedNews("first")}>1</Link>
-                                                              </li>
-                                                              <li className="page-item">
-                                                                  <Link className="page-link" to="#">..</Link>
-                                                              </li>
-                                                              <li className="page-item">
-                                                                  <Link className="page-link" to="#" onClick={() => loadPagedNews("last")}>{pagedCount}</Link>
-                                                              </li>
-                                                              <li className="page-item">
-                                                                  <Link className="page-link" to="#" aria-label="Next" onClick={() => loadPagedNews("next")}>
-                                                                              <span aria-hidden="true"><FontAwesome
-                                                                                  name="caret-right"/></span>
-                                                                  </Link>
-                                                              </li>
-                                                          </ul>
-                                                      </nav>
-                                                  </div>
-                                              </div>
+                                              {pagedCount > 1 &&
+                                                <div className="col-12">
+                                                    <div className="cpagination">
+                                                        <nav aria-label="Page navigation example">
+                                                            <ul className="pagination">
+                                                                <li className="page-item">
+                                                                    <Link className="page-link" to="#" aria-label="Previous" onClick={() => loadPagedNews("prev")}>
+                                                                                <span aria-hidden="true"><FontAwesome
+                                                                                    name="caret-left"/></span>
+                                                                    </Link>
+                                                                </li>
+                                                                <li className="page-item">
+                                                                    <Link className="page-link" to="#" onClick={() => loadPagedNews("first")}>1</Link>
+                                                                </li>
+                                                                <li className="page-item">
+                                                                    <Link className="page-link" to="#">..</Link>
+                                                                </li>
+                                                                <li className="page-item">
+                                                                    <Link className="page-link" to="#" onClick={() => loadPagedNews("last")}>{pagedCount}</Link>
+                                                                </li>
+                                                                <li className="page-item">
+                                                                    <Link className="page-link" to="#" aria-label="Next" onClick={() => loadPagedNews("next")}>
+                                                                                <span aria-hidden="true"><FontAwesome
+                                                                                    name="caret-right"/></span>
+                                                                    </Link>
+                                                                </li>
+                                                            </ul>
+                                                        </nav>
+                                                    </div>
+                                                </div>
+                                              }
                                             </div>
                                         </Fade>
                                     </TabPane>
@@ -289,35 +283,37 @@ const AboutUsPage = () => {
                                             </div>
 
                                             <div className="row">
-                                              <div className="col-12">
-                                                  <div className="cpagination">
-                                                      <nav aria-label="Page navigation example">
-                                                          <ul className="pagination">
-                                                              <li className="page-item">
-                                                                  <Link className="page-link" to="#" aria-label="Previous" onClick={() => loadPagedNews2("prev")}>
-                                                                              <span aria-hidden="true"><FontAwesome
-                                                                                  name="caret-left"/></span>
-                                                                  </Link>
-                                                              </li>
-                                                              <li className="page-item">
-                                                                  <Link className="page-link" to="#" onClick={() => loadPagedNews2("first")}>1</Link>
-                                                              </li>
-                                                              <li className="page-item">
-                                                                  <Link className="page-link" to="#">..</Link>
-                                                              </li>
-                                                              <li className="page-item">
-                                                                  <Link className="page-link" to="#" onClick={() => loadPagedNews2("last")}>{pagedCount2}</Link>
-                                                              </li>
-                                                              <li className="page-item">
-                                                                  <Link className="page-link" to="#" aria-label="Next" onClick={() => loadPagedNews2("next")}>
-                                                                              <span aria-hidden="true"><FontAwesome
-                                                                                  name="caret-right"/></span>
-                                                                  </Link>
-                                                              </li>
-                                                          </ul>
-                                                      </nav>
-                                                  </div>
-                                              </div>
+                                              {pagedCount2 > 1 &&
+                                                <div className="col-12">
+                                                    <div className="cpagination">
+                                                        <nav aria-label="Page navigation example">
+                                                            <ul className="pagination">
+                                                                <li className="page-item">
+                                                                    <Link className="page-link" to="#" aria-label="Previous" onClick={() => loadPagedNews2("prev")}>
+                                                                                <span aria-hidden="true"><FontAwesome
+                                                                                    name="caret-left"/></span>
+                                                                    </Link>
+                                                                </li>
+                                                                <li className="page-item">
+                                                                    <Link className="page-link" to="#" onClick={() => loadPagedNews2("first")}>1</Link>
+                                                                </li>
+                                                                <li className="page-item">
+                                                                    <Link className="page-link" to="#">..</Link>
+                                                                </li>
+                                                                <li className="page-item">
+                                                                    <Link className="page-link" to="#" onClick={() => loadPagedNews2("last")}>{pagedCount2}</Link>
+                                                                </li>
+                                                                <li className="page-item">
+                                                                    <Link className="page-link" to="#" aria-label="Next" onClick={() => loadPagedNews2("next")}>
+                                                                                <span aria-hidden="true"><FontAwesome
+                                                                                    name="caret-right"/></span>
+                                                                    </Link>
+                                                                </li>
+                                                            </ul>
+                                                        </nav>
+                                                    </div>
+                                                </div>
+                                              }
                                             </div>
                                         </Fade>
                                     </TabPane>
