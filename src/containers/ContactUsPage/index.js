@@ -117,7 +117,7 @@ class ContactUsPage extends Component {
                                     </div>
                                     <div className="contact_details">
                                         <p>LOCATION:</p>
-                                        <h6>Mad. Fausty's Residence, Mfante New Town, Awutu Bawjiase</h6>
+                                        <h6>Mad. Fausty's Residence, Mfante New-Town, Awutu Bawjiase</h6>
                                     </div>
                                 </div>
                             </div>
