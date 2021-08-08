@@ -135,6 +135,38 @@ const AboutUsPage = () => {
                                             <div className="row">
                                                 <EntertainmentNews headerHide={true} entertainments={businessNews}/>
                                             </div>
+
+                                            <div className="row">
+                                              <div className="col-12">
+                                                  <div className="cpagination">
+                                                      <nav aria-label="Page navigation example">
+                                                          <ul className="pagination">
+                                                              <li className="page-item">
+                                                                  <Link className="page-link" to="/" aria-label="Previous">
+                                                                              <span aria-hidden="true"><FontAwesome
+                                                                                  name="caret-left"/></span>
+                                                                  </Link>
+                                                              </li>
+                                                              <li className="page-item">
+                                                                  <Link className="page-link" to="/">1</Link>
+                                                              </li>
+                                                              <li className="page-item">
+                                                                  <Link className="page-link" to="/">..</Link>
+                                                              </li>
+                                                              <li className="page-item">
+                                                                  <Link className="page-link" to="/">5</Link>
+                                                              </li>
+                                                              <li className="page-item">
+                                                                  <Link className="page-link" to="/" aria-label="Next">
+                                                                              <span aria-hidden="true"><FontAwesome
+                                                                                  name="caret-right"/></span>
+                                                                  </Link>
+                                                              </li>
+                                                          </ul>
+                                                      </nav>
+                                                  </div>
+                                              </div>
+                                            </div>
                                         </Fade>
                                     </TabPane>
                                     <TabPane tabId="2">
@@ -142,41 +174,43 @@ const AboutUsPage = () => {
                                             <div className="row">
                                                 <EntertainmentNews headerHide={true} entertainments={entertainmentNews}/>
                                             </div>
+
+                                            <div className="row">
+                                              <div className="col-12">
+                                                  <div className="cpagination">
+                                                      <nav aria-label="Page navigation example">
+                                                          <ul className="pagination">
+                                                              <li className="page-item">
+                                                                  <Link className="page-link" to="/" aria-label="Previous">
+                                                                              <span aria-hidden="true"><FontAwesome
+                                                                                  name="caret-left"/></span>
+                                                                  </Link>
+                                                              </li>
+                                                              <li className="page-item">
+                                                                  <Link className="page-link" to="/">1</Link>
+                                                              </li>
+                                                              <li className="page-item">
+                                                                  <Link className="page-link" to="/">..</Link>
+                                                              </li>
+                                                              <li className="page-item">
+                                                                  <Link className="page-link" to="/">5</Link>
+                                                              </li>
+                                                              <li className="page-item">
+                                                                  <Link className="page-link" to="/" aria-label="Next">
+                                                                              <span aria-hidden="true"><FontAwesome
+                                                                                  name="caret-right"/></span>
+                                                                  </Link>
+                                                              </li>
+                                                          </ul>
+                                                      </nav>
+                                                  </div>
+                                              </div>
+                                            </div>
                                         </Fade>
                                     </TabPane>
                                 </TabContent>
                             </div>
-                            <div className="row">
-                                <div className="col-12">
-                                    <div className="cpagination">
-                                        <nav aria-label="Page navigation example">
-                                            <ul className="pagination">
-                                                <li className="page-item">
-                                                    <Link className="page-link" to="/" aria-label="Previous">
-                                                                <span aria-hidden="true"><FontAwesome
-                                                                    name="caret-left"/></span>
-                                                    </Link>
-                                                </li>
-                                                <li className="page-item">
-                                                    <Link className="page-link" to="/">1</Link>
-                                                </li>
-                                                <li className="page-item">
-                                                    <Link className="page-link" to="/">..</Link>
-                                                </li>
-                                                <li className="page-item">
-                                                    <Link className="page-link" to="/">5</Link>
-                                                </li>
-                                                <li className="page-item">
-                                                    <Link className="page-link" to="/" aria-label="Next">
-                                                                <span aria-hidden="true"><FontAwesome
-                                                                    name="caret-right"/></span>
-                                                    </Link>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div className="col-md-6 col-lg-4">
                           <FollowUs title="Follow Us"/>
