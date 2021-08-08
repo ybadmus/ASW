@@ -8,7 +8,6 @@ import PostOnePagination from "../../components/PostOnePagination";
 import {useParams} from "react-router-dom";
 
 import banner2 from "../../doc/img/bg/sidebar-1.png";
-import author2 from '../../doc/img/author/author2.png';
 
 import OurBlogSection from "../../components/OurBlogSection";
 import ClipLoader from "react-spinners/DotLoader";
@@ -74,7 +73,7 @@ const PostOnePage = () => {
                                     <div className="author">
                                         <div className="author_img">
                                             <div className="author_img_wrap">
-                                                <img src={author2} alt="author2"/>
+                                                <img src="https://drive.google.com/uc?export=view&id=1rMrRmR9s-NA-PVPq6qNtcukc1LTkPxz0" alt="author2"/>
                                             </div>
                                         </div>
                                         <Link to="#">{post.posted_by}</Link>

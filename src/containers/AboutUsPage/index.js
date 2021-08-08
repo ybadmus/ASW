@@ -180,7 +180,7 @@ const AboutUsPage = () => {
                             <div className="author_about">
                                 <div className="author_img">
                                     <div className="author_wrap">
-                                        <img src={author1} alt="author1"/>
+                                        <img src="https://drive.google.com/uc?export=view&id=1rMrRmR9s-NA-PVPq6qNtcukc1LTkPxz0" alt="author1"/>
                                     </div>
                                 </div>
                                 <div className="author_content"><Link to="/">Awutu Senya Watch</Link>

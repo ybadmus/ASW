@@ -91,42 +91,33 @@ class ContactUsPage extends Component {
                             <div className="col-lg-4">
                                 <div className="box single_contact_box">
                                     <div className="contact_title">
-                                        <h3>Headquarters</h3>
+                                        <h3>Head Office</h3>
                                     </div>
                                     <div className="contact_details">
-                                        <div className="contact_details_icon">
-                                            <FontAwesome name="map-marker-alt"/>
-                                        </div>
                                         <p>LOCATION:</p>
-                                        <h6>44 Canal Center Plaza #200 Alexandria, VA 22314, USA</h6>
+                                        <h6>Gen. C. C Bruce Street, Dansoman, Accra</h6>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-lg-4">
                                 <div className="box single_contact_box">
                                     <div className="contact_title">
-                                        <h3>Headquarters</h3>
+                                        <h3>Head Office</h3>
                                     </div>
                                     <div className="contact_details">
-                                        <div className="contact_details_icon">
-                                            <img src={black_phone} alt="black_phone"/>
-                                        </div>
                                         <p>LOCATION:</p>
-                                        <h6>44 Canal Center Plaza #200 Alexandria, VA 22314, USA</h6>
+                                        <h6>2 Old Bank Street, Bawjiase Market, Awutu Bawjiase</h6>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-lg-4">
                                 <div className="box single_contact_box">
                                     <div className="contact_title">
-                                        <h3>Headquarters</h3>
+                                        <h3>Training Center</h3>
                                     </div>
                                     <div className="contact_details">
-                                        <div className="contact_details_icon">
-                                            <FontAwesome name="envelope"/>
-                                        </div>
                                         <p>LOCATION:</p>
-                                        <h6>44 Canal Center Plaza #200 Alexandria, VA 22314, USA</h6>
+                                        <h6>Mad. Fausty's Residence, Mfante New Town, Awutu Bawjiase</h6>
                                     </div>
                                 </div>
                             </div>

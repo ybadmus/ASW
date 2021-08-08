@@ -7,29 +7,21 @@ const FollowUs = ({className='', title}) => {
         <div className={`follow_box widget mb30 ${className}`}>
             <h2 className="widget-title">{title}</h2>
             <div className="social_shares">
-                <Link className="single_social social_facebook" to="#">
+                <Link className="single_social social_facebook" target="_blank" to={{ pathname: "https://web.facebook.com/awutusenyawatch" }}>
                     <span className="follow_icon"><FontAwesome name="facebook-f"/></span>
-                    34,456 <span className="icon_text">Fans</span>
+                    701 <span className="icon_text">Followers</span>
                 </Link>
                 <Link className="single_social social_twitter" to="#">
                     <span className="follow_icon"><FontAwesome name="twitter"/></span>
-                    34,456 <span className="icon_text">Followers</span>
+                    5 <span className="icon_text">Followers</span>
                 </Link>
                 <Link className="single_social social_youtube" to="#">
                     <span className="follow_icon"><FontAwesome name="youtube"/></span>
-                    34,456 <span className="icon_text">Subscribers</span>
+                    10 <span className="icon_text">Subscribers</span>
                 </Link>
                 <Link className="single_social social_instagram" to="#">
                     <span className="follow_icon"><FontAwesome name="instagram"/></span>
-                    34,456 <span className="icon_text">Followers</span>
-                </Link>
-                <Link className="single_social social_vimeo" to="#">
-                    <span className="follow_icon"><FontAwesome name="vimeo"/></span>
-                    34,456 <span className="icon_text">Followers</span>
-                </Link>
-                <Link className="single_social social_medium" to="#">
-                    <span className="follow_icon"><FontAwesome name="medium"/></span>
-                    34,456 <span className="icon_text">Followers</span>
+                    101 <span className="icon_text">Followers</span>
                 </Link>
             </div>
         </div>
