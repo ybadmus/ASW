@@ -46,7 +46,7 @@ const HomePage = () => {
   useEffect(() => {
 
     if (businessNews.length == 0) {
-      fetchPosts("http://localhost:4000/api/v1/posts").then(news => {
+      fetchPosts("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts").then(news => {
         setBusinessNews(news);
         setLoading(false);
       });
@@ -57,7 +57,7 @@ const HomePage = () => {
   useEffect(() => {
 
     if (mixArray.length == 0) {
-      fetchData("http://localhost:4000/api/v1/posts/top_news").then(news => {
+      fetchData("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts/top_news").then(news => {
         setMixArray(news);
         setLoading(false);
       });
