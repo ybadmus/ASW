@@ -10,7 +10,6 @@ import classnames from 'classnames';
 import FollowUs from "../../components/FollowUs";
 import banner2 from "../../doc/img/bg/sidebar-1.png";
 import calendar from '../../doc/img/icon/calendar.png';
-import author1 from '../../doc/img/author/author1.png';
 import ClipLoader from "react-spinners/DotLoader";
 
 const AboutUsPage = () => {
@@ -143,8 +142,8 @@ const AboutUsPage = () => {
 
     useEffect(() => {
 
-      if (businessNews.length == 0) {
-        fetchData2("http://localhost:4000/api/v1/posts/latest_news").then(news => {
+      if (businessNews.length === 0) {
+        fetchData2("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts/latest_news").then(news => {
           setBusinessNews(news);
           setLoading(false);
         });
@@ -154,8 +153,8 @@ const AboutUsPage = () => {
 
     useEffect(() => {
 
-      if (entertainmentNews.length == 0) {
-        fetchData("http://localhost:4000/api/v1/posts/entertainment_news").then(news => {
+      if (entertainmentNews.length === 0) {
+        fetchData("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts/entertainment_news").then(news => {
           setEntertainmentNews(news);
           setLoading(false);
         });

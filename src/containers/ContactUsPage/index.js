@@ -1,18 +1,10 @@
 import React, {Fragment, Component} from 'react';
 import BannerSection from "../../components/BannerSection";
-import FontAwesome from "../../components/uiStyle/FontAwesome";
 import NewsLetter from "../../components/NewsLetter";
 import FollowUs from "../../components/FollowUs";
 import SimpleReactValidator from 'simple-react-validator';
 import {toast} from "react-toastify";
 import scrollIcon from '../../doc/img/icon/scroll.png';
-import black_phone from '../../doc/img/icon/black_phone.png';
-
-const fetchData = async (url) => {
-  const res = await fetch(url, { mode: 'cors', headers: { 'Access-Control-Allow-Origin':'*' }})
-  const json = await res.json()
-  return json
-};
 
 class ContactUsPage extends Component {
     constructor(props) {
@@ -39,7 +31,7 @@ class ContactUsPage extends Component {
         if (this.validator.allValid()) {
             const res = await fetch("http://localhost:4000/api/v1/enquiries", { method: 'POST', mode: 'cors', 
             headers: { 'Access-Control-Allow-Origin':'*', 'Content-Type':'application/json' }, body: JSON.stringify(this.state)});
-            if(res.status == 200) {
+            if(res.status === 200) {
               toast.success('Enquiry successfully sent');
               this.setState({
                 name: '',

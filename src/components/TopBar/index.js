@@ -16,23 +16,19 @@ const TopBar = ({className, dark}) => {
 
     useEffect(() => {
 
-      if (timeInGhana.length == 0) {
-        fetchData("https://worldtimeapi.org/api/timezone/Africa/Accra").then(time => {
-          const date = new Date(time.datetime.split('.')[0])
-          const date_string = date.toLocaleDateString("en-US", {weekday: "long", year: "numeric", month: "long", day: "numeric"});
-          setTimeInGhana(date_string);
-        });
-      }
+      fetchData("https://worldtimeapi.org/api/timezone/Africa/Accra").then(time => {
+        const date = new Date(time.datetime.split('.')[0])
+        const date_string = date.toLocaleDateString("en-US", {weekday: "long", year: "numeric", month: "long", day: "numeric"});
+        setTimeInGhana(date_string);
+      });
 
     }, [setTimeInGhana]);
 
     useEffect(() => {
 
-      if (trending.length == 0) {
-        fetchData("http://localhost:4000/api/v1/posts/trending").then(trending => {
-          setTrending(trending);
-        });
-      }
+      fetchData("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts/trending").then(trending => {
+        setTrending(trending);
+      });
 
     }, [setTrending]);
 

@@ -16,8 +16,8 @@ const CategoriesWidget = () => {
 
     useEffect(() => {
 
-    if (categories.length == 0) {
-        fetchData("http://localhost:4000/api/v1/categories").then(news => {
+    if (categories.length === 0) {
+        fetchData("https://sheltered-gorge-53806.herokuapp.com/api/v1/categories").then(news => {
           setCategories(news)
         });
       }

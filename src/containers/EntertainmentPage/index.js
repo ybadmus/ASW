@@ -81,7 +81,7 @@ const EntertainmentPage = () => {
 
     useEffect(() => {
 
-      if (entertainments.length == 0) {
+      if (entertainments.length === 0) {
         fetchData(`http://localhost:4000/api/v1/categories/${id}/posts`).then(news => {
           if(news.length > 0)
             setCategory(news[0].category)
