@@ -82,7 +82,7 @@ const EntertainmentPage = () => {
     useEffect(() => {
 
       if (entertainments.length === 0) {
-        fetchData(`https://cryptic-ridge-64289.herokuapp.com/api/v1/categories/${id}/posts`).then(news => {
+        fetchData(`https://sheltered-gorge-53806.herokuapp.com/api/v1/categories/${id}/posts`).then(news => {
           if(news.length > 0)
             setCategory(news[0].category)
           setEntertainments(news);

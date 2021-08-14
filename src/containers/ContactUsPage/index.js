@@ -29,7 +29,7 @@ class ContactUsPage extends Component {
     submitHandler = async(e) => {
         e.preventDefault();
         if (this.validator.allValid()) {
-            const res = await fetch("https://cryptic-ridge-64289.herokuapp.com/api/v1/enquiries", { method: 'POST', mode: 'cors', 
+            const res = await fetch("https://sheltered-gorge-53806.herokuapp.com/api/v1/enquiries", { method: 'POST', mode: 'cors', 
             headers: { 'Access-Control-Allow-Origin':'*', 'Content-Type':'application/json' }, body: JSON.stringify(this.state)});
             if(res.status === 200) {
               toast.success('Enquiry successfully sent');

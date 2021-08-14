@@ -17,7 +17,7 @@ const NewsLetter = ({className, input_white, titleClass}) => {
   
     const handleSave = async () => {
       let data = {ip_address: '127.0.0.1', email_address: email }
-      const res = await fetch("https://cryptic-ridge-64289.herokuapp.com/api/v1/newsletters", { method: 'POST', mode: 'cors', 
+      const res = await fetch("https://sheltered-gorge-53806.herokuapp.com/api/v1/newsletters", { method: 'POST', mode: 'cors', 
         headers: { 'Access-Control-Allow-Origin':'*', 'Content-Type':'application/json' }, body: JSON.stringify(data)});
       try {
         const json = await res.json(); 
