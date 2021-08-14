@@ -37,7 +37,7 @@ const PostOnePage = () => {
     useEffect(() => {
       //add other conditions to reduce the rate of calls made here.
       if (id) {
-        fetchData(`https://sheltered-gorge-53806.herokuapp.com/api/v1/posts/${id}`).then(news => {
+        fetchData(`https://cryptic-ridge-64289.herokuapp.com/api/v1/posts/${id}`).then(news => {
           setCategory(news.category_name)
           setRelatedStories(news.related_stories);
           setPost(news);
