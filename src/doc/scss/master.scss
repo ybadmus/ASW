@@ -251,6 +251,10 @@ body {
 .logo_area {
   padding: 10px 0;
 
+  img {
+    max-width: 70%;
+  }
+
   .tp_search_form {
     width: 75%;
 
@@ -2785,7 +2789,7 @@ a.cbtn3 {
       float: unset;
       padding: 0;
       padding-left: 0;
-      padding: 20px;
+      padding: 12px;
     }
 
     .post_img {

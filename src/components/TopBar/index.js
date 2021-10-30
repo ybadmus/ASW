@@ -26,7 +26,7 @@ const TopBar = ({className, dark}) => {
 
     useEffect(() => {
 
-      fetchData("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts/trending").then(trending => {
+      fetchData("http://localhost:4000/api/v1/posts/trending").then(trending => {
         setTrending(trending);
       });
 

@@ -104,9 +104,9 @@ const HomePage = () => {
                               </div>
 
                               <div className="col-lg-12">
-                                  <div className="banner2 mb30">
+                                  <div className="banner2 mb30" >
                                       <Link to="/">
-                                          <img src={banner2} alt="thumb"/>
+                                          <img src={banner2} className="border rounded" alt="thumb"/>
                                       </Link>
                                   </div>
                               </div>
