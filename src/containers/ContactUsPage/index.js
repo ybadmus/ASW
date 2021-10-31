@@ -87,29 +87,19 @@ class ContactUsPage extends Component {
                                     </div>
                                     <div className="contact_details">
                                         <p>LOCATION:</p>
-                                        <h6>Gen. C. C Bruce Street, Dansoman, Accra</h6>
+                                        <h6>Shop No: 2, Old Bank Road, Awutu Bawjiase</h6>
                                     </div>
                                 </div>
                             </div>
+                            
                             <div className="col-lg-4">
                                 <div className="box single_contact_box">
                                     <div className="contact_title">
-                                        <h3>Head Office</h3>
+                                        <h3>Branch Office</h3>
                                     </div>
                                     <div className="contact_details">
                                         <p>LOCATION:</p>
-                                        <h6>2 Old Bank Street, Bawjiase Market, Awutu Bawjiase</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-4">
-                                <div className="box single_contact_box">
-                                    <div className="contact_title">
-                                        <h3>Training Center</h3>
-                                    </div>
-                                    <div className="contact_details">
-                                        <p>LOCATION:</p>
-                                        <h6>Mad. Fausty's Residence, Mfante New-Town, Awutu Bawjiase</h6>
+                                        <h6>Hse No: 335, Mfante NewTown, Awutu Bawjiase</h6>
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +117,7 @@ class ContactUsPage extends Component {
                                         frameBorder={0}
                                         height="450px"
                                         width="100%"
-                                        src="https://maps.google.com/maps?q=Dansoman,%20Accra&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                        src="https://maps.google.com/maps?q=Awutu%20Bawjiase&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                         allowFullScreen/>
                                 </div>
                             </div>
