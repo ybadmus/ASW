@@ -143,7 +143,7 @@ const AboutUsPage = () => {
     useEffect(() => {
 
       if (businessNews.length === 0) {
-        fetchData2("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts/latest_news").then(news => {
+        fetchData2("https://admin.awutusenyawatch.com/api/v1/posts/latest_news").then(news => {
           setBusinessNews(news);
           setLoading(false);
         });
@@ -154,7 +154,7 @@ const AboutUsPage = () => {
     useEffect(() => {
 
       if (entertainmentNews.length === 0) {
-        fetchData("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts/entertainment_news").then(news => {
+        fetchData("https://admin.awutusenyawatch.com/api/v1/posts/entertainment_news").then(news => {
           setEntertainmentNews(news);
           setLoading(false);
         });
