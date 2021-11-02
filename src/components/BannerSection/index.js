@@ -10,7 +10,7 @@ const BannerSection = ({className}) => {
                     <div className="col-lg-8 m-auto">
                         <div className="banner1">
                             <Link to="/">
-                                <img src={bannerImg} alt="bannerImg"/>
+                                <img src={bannerImg} className="rounded" alt="bannerImg"/>
                             </Link>
                         </div>
                     </div>

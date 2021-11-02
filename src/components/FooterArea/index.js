@@ -52,7 +52,7 @@ const FooterArea = ({className}) => {
                         <div className="col-md-6 align-self-center">
                             <div className="footer_logo logo">
                                 <Link to="/">
-                                    <img src={flogo} alt="logo"/>
+                                    <img src={flogo} className="rounded" alt="logo"/>
                                 </Link>
                             </div>
                             <div className="social2">

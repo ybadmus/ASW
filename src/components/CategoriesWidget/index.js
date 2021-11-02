@@ -17,7 +17,7 @@ const CategoriesWidget = () => {
     useEffect(() => {
 
     if (categories.length === 0) {
-        fetchData("https://admin.awutusenyawatch.com/api/v1/categories").then(news => {
+        fetchData("https://admin.awutusenyawatch.com/api/v1/categories").then(news => {  http://
           setCategories(news)
         });
       }
@@ -35,7 +35,7 @@ const CategoriesWidget = () => {
             <ul>
                 {categories.map((item, i) => (
                     <li key={i}>
-                        <Link to={`/category/${item.id}`} style={{background: `url(${category1})`}}> <span>{item.name}</span>
+                        <Link to={`/category/${item.id}`} style={{background: ''}}> <span>{item.name}</span>
                             <img src={union} alt="category"/>
                         </Link>
                     </li>
