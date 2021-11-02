@@ -17,7 +17,7 @@ const CategoriesWidget = () => {
     useEffect(() => {
 
     if (categories.length === 0) {
-        fetchData("http://localhost:4000/api/v1/categories").then(news => {  http://
+        fetchData("https://admin.awutusenyawatch.com/api/v1/categories").then(news => {  http://
           setCategories(news)
         });
       }

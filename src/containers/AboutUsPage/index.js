@@ -144,7 +144,7 @@ const AboutUsPage = () => {
     useEffect(() => {
 
       if (businessNews.length === 0) {
-        fetchData2("http://localhost:4000/api/v1/posts/latest_news").then(news => {
+        fetchData2("https://admin.awutusenyawatch.com/api/v1/posts/latest_news").then(news => {
           setBusinessNews(news);
           setLoading(false);
         });
@@ -155,7 +155,7 @@ const AboutUsPage = () => {
     useEffect(() => {
 
       if (entertainmentNews.length === 0) {
-        fetchData("http://localhost:4000/api/v1/posts/entertainment_news").then(news => {
+        fetchData("https://admin.awutusenyawatch.com/api/v1/posts/entertainment_news").then(news => {
           setEntertainmentNews(news);
           setLoading(false);
         });

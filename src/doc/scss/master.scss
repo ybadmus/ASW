@@ -1515,7 +1515,7 @@ span.tranding {
 
         &:before {
           position: absolute;
-          content: "/";
+          content: "|";
           height: 20px;
           width: 10px;
           left: -18px;
@@ -1550,7 +1550,7 @@ span.tranding {
 
         &:before {
           position: absolute;
-          content: "/";
+          content: "|";
           height: 20px;
           width: 10px;
           left: -18px;
@@ -1589,7 +1589,7 @@ span.tranding {
 
         &:before {
           position: absolute;
-          content: "/";
+          content: "|";
           height: 20px;
           width: 10px;
           left: -18px;
@@ -2443,7 +2443,7 @@ a.cbtn3 {
       float: unset;
       padding: 0;
       padding-left: 0;
-      padding: 20px;
+      padding: 12px;
     }
 
     .post_img {
@@ -2771,6 +2771,10 @@ a.cbtn3 {
 
   .cotact_form{
     margin-bottom: 40px;
+  }
+
+  .logo_area img {
+    max-width: 85%;
   }
 
 }

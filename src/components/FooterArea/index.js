@@ -20,7 +20,7 @@ const FooterArea = ({className}) => {
     const handleSave = async () => {
 
       let data = {ip_address: '127.0.0.1', email_address: email }
-      const res = await fetch("http://localhost:4000/api/v1/newsletters", { method: 'POST', mode: 'cors', 
+      const res = await fetch("https://admin.awutusenyawatch.com/api/v1/newsletters", { method: 'POST', mode: 'cors', 
         headers: { 'Access-Control-Allow-Origin':'*', 'Content-Type':'application/json' }, body: JSON.stringify(data)});
       try {
         const json = await res.json(); 

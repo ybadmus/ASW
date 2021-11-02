@@ -37,7 +37,7 @@ const PostOnePage = () => {
     useEffect(() => {
       //add other conditions to reduce the rate of calls made here.
       if (id) {
-        fetchData(`http://localhost:4000/api/v1/posts/${id}`).then(news => {
+        fetchData(`https://admin.awutusenyawatch.com/api/v1/posts/${id}`).then(news => {
           setCategory(news.category_name)
           setRelatedStories(news.related_stories);
           setPost(news);
@@ -107,7 +107,7 @@ const PostOnePage = () => {
                             <FollowUs title="Follow Us"/>
                             <div className="banner2 mb30">
                                 <Link to="/">
-                                    <img className="border rounded" src={banner2} alt="thumb"/>
+                                    <img  src={banner2} alt="thumb"/>
                                 </Link>
                             </div>
                             <NewsLetter/>
