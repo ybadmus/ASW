@@ -1458,7 +1458,7 @@ span.tranding {
     li {
       list-style: none;
       margin-bottom: 15px;
-      background: #17222b;
+      //background: #17222b;
 
       &:last-child {
         margin-bottom: 0;
@@ -1483,7 +1483,7 @@ span.tranding {
 
         &:hover {
           @include transform(scale(1.03));
-          background: #9a9e9f;
+          //background: #17222b;
         }
 
       }
