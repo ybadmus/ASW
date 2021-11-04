@@ -251,6 +251,10 @@ body {
 .logo_area {
   padding: 10px 0;
 
+  img {
+    max-width: 70%;
+  }
+
   .tp_search_form {
     width: 75%;
 
@@ -1454,6 +1458,7 @@ span.tranding {
     li {
       list-style: none;
       margin-bottom: 15px;
+      background: #9a9e9f;
 
       &:last-child {
         margin-bottom: 0;
@@ -1478,6 +1483,7 @@ span.tranding {
 
         &:hover {
           @include transform(scale(1.03));
+          background: #9a9e9f;
         }
 
       }
@@ -1510,7 +1516,7 @@ span.tranding {
 
         &:before {
           position: absolute;
-          content: "/";
+          content: "|";
           height: 20px;
           width: 10px;
           left: -18px;
@@ -1545,7 +1551,7 @@ span.tranding {
 
         &:before {
           position: absolute;
-          content: "/";
+          content: "|";
           height: 20px;
           width: 10px;
           left: -18px;
@@ -1584,7 +1590,7 @@ span.tranding {
 
         &:before {
           position: absolute;
-          content: "/";
+          content: "|";
           height: 20px;
           width: 10px;
           left: -18px;
@@ -2438,7 +2444,7 @@ a.cbtn3 {
       float: unset;
       padding: 0;
       padding-left: 0;
-      padding: 20px;
+      padding: 12px;
     }
 
     .post_img {
@@ -2768,6 +2774,10 @@ a.cbtn3 {
     margin-bottom: 40px;
   }
 
+  .logo_area img {
+    max-width: 85%;
+  }
+
 }
 
 
@@ -2785,7 +2795,7 @@ a.cbtn3 {
       float: unset;
       padding: 0;
       padding-left: 0;
-      padding: 20px;
+      padding: 12px;
     }
 
     .post_img {

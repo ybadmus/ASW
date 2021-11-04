@@ -17,7 +17,7 @@ const MostShareWidget = ({title, dark}) => {
     useEffect(() => {
   
       if (businessNews.length === 0) {
-        fetchData("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts").then(news => {
+        fetchData("https://admin.awutusenyawatch.com/api/v1/posts").then(news => {
           setBusinessNews(news);
         });
       }

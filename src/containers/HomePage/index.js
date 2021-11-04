@@ -46,7 +46,7 @@ const HomePage = () => {
   useEffect(() => {
 
     if (businessNews.length === 0) {
-      fetchPosts("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts").then(news => {
+      fetchPosts("https://admin.awutusenyawatch.com/api/v1/posts").then(news => {
         setBusinessNews(news);
         setLoading(false);
       });
@@ -57,7 +57,7 @@ const HomePage = () => {
   useEffect(() => {
 
     if (mixArray.length === 0) {
-      fetchData("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts/top_news").then(news => {
+      fetchData("https://admin.awutusenyawatch.com/api/v1/posts/top_news").then(news => {
         setMixArray(news);
         setLoading(false);
       });
@@ -104,9 +104,9 @@ const HomePage = () => {
                               </div>
 
                               <div className="col-lg-12">
-                                  <div className="banner2 mb30">
+                                  <div className="banner2 mb30" >
                                       <Link to="/">
-                                          <img src={banner2} alt="thumb"/>
+                                          <img src={banner2} className="border rounded" alt="thumb"/>
                                       </Link>
                                   </div>
                               </div>

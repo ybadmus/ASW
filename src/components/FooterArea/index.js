@@ -20,7 +20,7 @@ const FooterArea = ({className}) => {
     const handleSave = async () => {
 
       let data = {ip_address: '127.0.0.1', email_address: email }
-      const res = await fetch("https://sheltered-gorge-53806.herokuapp.com/api/v1/newsletters", { method: 'POST', mode: 'cors', 
+      const res = await fetch("https://admin.awutusenyawatch.com/api/v1/newsletters", { method: 'POST', mode: 'cors', 
         headers: { 'Access-Control-Allow-Origin':'*', 'Content-Type':'application/json' }, body: JSON.stringify(data)});
       try {
         const json = await res.json(); 
@@ -52,7 +52,7 @@ const FooterArea = ({className}) => {
                         <div className="col-md-6 align-self-center">
                             <div className="footer_logo logo">
                                 <Link to="/">
-                                    <img src={flogo} alt="logo"/>
+                                    <img src={flogo} className="rounded" alt="logo"/>
                                 </Link>
                             </div>
                             <div className="social2">

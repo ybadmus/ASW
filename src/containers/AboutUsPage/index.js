@@ -9,6 +9,7 @@ import BannerSection from "../../components/BannerSection";
 import classnames from 'classnames';
 import FollowUs from "../../components/FollowUs";
 import banner2 from "../../doc/img/bg/sidebar-1.png";
+import logo from '../../doc/img/logo/asw_logo.png';
 import calendar from '../../doc/img/icon/calendar.png';
 import ClipLoader from "react-spinners/DotLoader";
 
@@ -143,7 +144,7 @@ const AboutUsPage = () => {
     useEffect(() => {
 
       if (businessNews.length === 0) {
-        fetchData2("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts/latest_news").then(news => {
+        fetchData2("https://admin.awutusenyawatch.com/api/v1/posts/latest_news").then(news => {
           setBusinessNews(news);
           setLoading(false);
         });
@@ -154,7 +155,7 @@ const AboutUsPage = () => {
     useEffect(() => {
 
       if (entertainmentNews.length === 0) {
-        fetchData("https://sheltered-gorge-53806.herokuapp.com/api/v1/posts/entertainment_news").then(news => {
+        fetchData("https://admin.awutusenyawatch.com/api/v1/posts/entertainment_news").then(news => {
           setEntertainmentNews(news);
           setLoading(false);
         });
@@ -179,7 +180,7 @@ const AboutUsPage = () => {
                             <div className="author_about">
                                 <div className="author_img">
                                     <div className="author_wrap">
-                                        <img src="https://drive.google.com/uc?export=view&id=1rMrRmR9s-NA-PVPq6qNtcukc1LTkPxz0" alt="author1"/>
+                                        <img src={logo} alt="author1"/>
                                     </div>
                                 </div>
                                 <div className="author_content"><Link to="/">Awutu Senya Watch</Link>
@@ -325,7 +326,7 @@ const AboutUsPage = () => {
 
                           <div className="banner2 mb30">
                               <Link to="/">
-                                  <img src={banner2} alt="thumb"/>
+                                  <img src={banner2} className="border rounded" alt="thumb"/>
                               </Link>
                           </div>
 
