@@ -155,7 +155,7 @@ const EntertainmentPage = () => {
                             <FollowUs title="Follow Us"/>
                             <div className="banner2 mb30">
                                 <Link to="/">
-                                    <img src={banner2} className="border rounded" alt="thumb"/>
+                                    <img className="border rounded" src={banner2} alt="thumb"/>
                                 </Link>
                             </div>
                             <NewsLetter/>
