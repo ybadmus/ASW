@@ -144,7 +144,11 @@ const AboutUsPage = () => {
     useEffect(() => {
 
       if (businessNews.length === 0) {
+<<<<<<< HEAD
         fetchData2("https://admin.awutusenyawatch.com/api/v1/posts/latest_news").then(news => {
+=======
+        fetchData2("https://cryptic-ridge-64289.herokuapp.com/api/v1/posts/latest_news").then(news => {
+>>>>>>> 4266776d48488fe0d151dc1a793a5255cd7a93ef
           setBusinessNews(news);
           setLoading(false);
         });
@@ -155,7 +159,11 @@ const AboutUsPage = () => {
     useEffect(() => {
 
       if (entertainmentNews.length === 0) {
+<<<<<<< HEAD
         fetchData("https://admin.awutusenyawatch.com/api/v1/posts/entertainment_news").then(news => {
+=======
+        fetchData("https://cryptic-ridge-64289.herokuapp.com/api/v1/posts/entertainment_news").then(news => {
+>>>>>>> 4266776d48488fe0d151dc1a793a5255cd7a93ef
           setEntertainmentNews(news);
           setLoading(false);
         });

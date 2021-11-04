@@ -1,6 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3d0ad4d0.chunk.css",
+<<<<<<< HEAD
     "main.js": "/static/js/main.8af10abb.chunk.js",
     "main.js.map": "/static/js/main.8af10abb.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.3e51759b.js",
@@ -14,13 +15,34 @@
     "static/css/2.5043813b.chunk.css.map": "/static/css/2.5043813b.chunk.css.map",
     "static/css/main.3d0ad4d0.chunk.css.map": "/static/css/main.3d0ad4d0.chunk.css.map",
     "static/js/2.084b45d9.chunk.js.LICENSE.txt": "/static/js/2.084b45d9.chunk.js.LICENSE.txt",
+=======
+    "main.js": "/static/js/main.b9dcb8e6.chunk.js",
+    "main.js.map": "/static/js/main.b9dcb8e6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3e51759b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3e51759b.js.map",
+    "static/css/2.5043813b.chunk.css": "/static/css/2.5043813b.chunk.css",
+    "static/js/2.bf4fba1e.chunk.js": "/static/js/2.bf4fba1e.chunk.js",
+    "static/js/2.bf4fba1e.chunk.js.map": "/static/js/2.bf4fba1e.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.820bce51f5c7f356a213a38c2bafcbb0.js": "/precache-manifest.820bce51f5c7f356a213a38c2bafcbb0.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.5043813b.chunk.css.map": "/static/css/2.5043813b.chunk.css.map",
+    "static/css/main.3d0ad4d0.chunk.css.map": "/static/css/main.3d0ad4d0.chunk.css.map",
+    "static/js/2.bf4fba1e.chunk.js.LICENSE.txt": "/static/js/2.bf4fba1e.chunk.js.LICENSE.txt",
+>>>>>>> 4266776d48488fe0d151dc1a793a5255cd7a93ef
     "static/media/font-awesome.min.css": "/static/media/fontawesome-webfont.fee66e71.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.3e51759b.js",
     "static/css/2.5043813b.chunk.css",
+<<<<<<< HEAD
     "static/js/2.084b45d9.chunk.js",
     "static/css/main.3d0ad4d0.chunk.css",
     "static/js/main.8af10abb.chunk.js"
+=======
+    "static/js/2.bf4fba1e.chunk.js",
+    "static/css/main.3d0ad4d0.chunk.css",
+    "static/js/main.b9dcb8e6.chunk.js"
+>>>>>>> 4266776d48488fe0d151dc1a793a5255cd7a93ef
   ]
 }
