@@ -10,7 +10,7 @@ const LogoArea = ({className, dark}) => {
                     <div className="col-lg-12 align-self-center">
                         <div className="banner1 text-center">
                             <Link to="#">
-                                <img src={tp_banner} alt="banner"/>
+                                <img src={tp_banner} className="rounded" alt="banner"/>
                             </Link>
                         </div>
                     </div>

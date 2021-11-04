@@ -82,7 +82,7 @@ const EntertainmentPage = () => {
     useEffect(() => {
 
       if (entertainments.length === 0) {
-        fetchData(`https://cryptic-ridge-64289.herokuapp.com/api/v1/categories/${id}/posts`).then(news => {
+        fetchData(`https://admin.awutusenyawatch.com/api/v1/categories/${id}/posts`).then(news => {
           if(news.length > 0)
             setCategory(news[0].category)
           setEntertainments(news);
@@ -155,7 +155,7 @@ const EntertainmentPage = () => {
                             <FollowUs title="Follow Us"/>
                             <div className="banner2 mb30">
                                 <Link to="/">
-                                    <img src={banner2} alt="thumb"/>
+                                    <img className="border rounded" src={banner2} alt="thumb"/>
                                 </Link>
                             </div>
                             <NewsLetter/>
