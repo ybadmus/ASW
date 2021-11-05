@@ -9,7 +9,7 @@ const FollowUs = ({className='', title}) => {
             <div className="social_shares">
                 <Link className="single_social social_facebook" target="_blank" to={{ pathname: "https://web.facebook.com/awutusenyawatch" }}>
                     <span className="follow_icon"><FontAwesome name="facebook-f"/></span>
-                    924 <span className="icon_text">Followers</span>
+                    1058 <span className="icon_text">Followers</span>
                 </Link>
                 <Link className="single_social social_twitter" to="#">
                     <span className="follow_icon"><FontAwesome name="twitter"/></span>

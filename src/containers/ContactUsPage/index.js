@@ -87,7 +87,7 @@ class ContactUsPage extends Component {
                                     </div>
                                     <div className="contact_details">
                                         <p>LOCATION:</p>
-                                        <h6>Shop No: 2, Old Bank Road, Awutu Bawjiase</h6>
+                                        <h6>#2, Old Bank Street, Awutu Bawjiase</h6>
                                     </div>
                                 </div>
                             </div>
