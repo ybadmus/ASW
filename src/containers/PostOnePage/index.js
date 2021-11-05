@@ -1,4 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react';
+import {Helmet} from "react-helmet";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
 import {Link} from "react-router-dom";
 import NewsLetter from "../../components/NewsLetter";
@@ -21,6 +22,13 @@ const fetchData = async (url) => {
 const setDate = (date) => {
   const opt = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
   return new Date(date).toLocaleDateString("en-US", opt)
+};
+
+const stripHTML = (string) => {
+  var html = string;
+  var div = document.createElement("div");
+  div.innerHTML = html;
+  return div.textContent || div.innerText || "";
 };
 
 const PostOnePage = () => {
@@ -55,6 +63,15 @@ const PostOnePage = () => {
 
     return (
         <Fragment>
+
+            <Helmet>
+                <meta property="og:url"           content={`https://www.awutusenyawatch.com/post/${id}`} />
+                <meta property="og:type"          content="website" />
+                <meta property="og:title"         content={post.title} />
+                <meta property="og:description"   content={`${stripHTML(post.description).slice(0, 200)} ...`} />
+                <meta property="og:image"         content={post.detail_media}  />
+            </Helmet>
+
             <div className="archives post post1">
                 <div className="space-20"/>
                 <div className="container">

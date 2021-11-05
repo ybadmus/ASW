@@ -1,4 +1,5 @@
 import React, {Fragment, useEffect, useState}  from 'react';
+import {Helmet} from "react-helmet";
 import FollowUs from "../../components/FollowUs";
 import MixCarousel from "../../components/MixCarousel";
 import {Link} from "react-router-dom";
@@ -69,8 +70,16 @@ const HomePage = () => {
     return ( <ClipLoader color={"black"} loading={loading} css={"display: block;margin: 10% auto;"} size={100} /> )
 
   return (
+
       <Fragment>
- 
+          <Helmet>
+              <meta property="og:url"           content="https://www.awutusenyawatch.com" />
+              <meta property="og:type"          content="website" />
+              <meta property="og:title"         content="Awutu Senya Watch" />
+              <meta property="og:description"   content="Mouthpiece of Awutu Senya Constituency." />
+              <meta property="og:image"         content="https://drive.google.com/uc?export=view&id=1jwknC7KdGvCyyV__VqKpkKDsqhR3p4zg" />
+          </Helmet>
+          
           <MixCarousel className="half_bg1" mixArray={mixArray}/>
 
           <div className="space-70"/>

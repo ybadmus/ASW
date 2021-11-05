@@ -1,4 +1,5 @@
 import React, {Fragment, Component} from 'react';
+import {Helmet} from "react-helmet";
 import BannerSection from "../../components/BannerSection";
 import NewsLetter from "../../components/NewsLetter";
 import FollowUs from "../../components/FollowUs";
@@ -57,6 +58,14 @@ class ContactUsPage extends Component {
         const {name, subject, email, phone, message} = this.state;
         return (
             <Fragment>
+              <Helmet>
+                <meta property="og:url"           content="https://www.awutusenyawatch.com/contact" />
+                <meta property="og:type"          content="website" />
+                <meta property="og:title"         content="Awutu Senya Watch" />
+                <meta property="og:description"   content="Mouthpiece of Awutu Senya Constituency." />
+                <meta property="og:image"         content="https://drive.google.com/uc?export=view&id=1jwknC7KdGvCyyV__VqKpkKDsqhR3p4zg" />
+              </Helmet>
+
                 <div className="inner inner_bg inner_overlay">
                     <div className="container">
                         <div className="inner_wrap">
