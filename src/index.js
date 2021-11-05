@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
 import App from './containers/App/App';
 import {BrowserRouter} from 'react-router-dom'
+import { hydrate, render } from "react-dom";
 import store from './store'
 import * as serviceWorker from './serviceWorker';
 
@@ -13,14 +14,14 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'swiper/swiper.scss'
 import 'react-modal-video/scss/modal-video.scss';
 
-ReactDOM.render(
-    <Provider store={store}>
-        <BrowserRouter>
-            <App/>
-        </BrowserRouter>
-    </Provider>,
-    document.getElementById('root')
-);
+const AppDom = (<Provider store={store}><BrowserRouter><App/></BrowserRouter></Provider>);
+ 
+const rootElement = document.getElementById("root");
+if (rootElement.hasChildNodes()) {
+  hydrate(AppDom, rootElement);
+} else {
+  render(AppDom, rootElement);
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
