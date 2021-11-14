@@ -75,16 +75,18 @@ const PostOnePage = () => {
             <div className="archives post post1">
                 <div className="space-20"/>
                 <div className="container">
-                    <div className="space-20"/>
+                    <div className="space-20 d-none d-md-block"/>
                     <div className="row">
                         <div className="col-md-6 col-lg-8">
                             <div className="single_post_heading">
                                 <h1>{post.title}</h1>
                                 <div className="space-10"/>
                             </div>
-                            <div className="space-30"/>
+                            <div className="space-30 d-none d-md-block"/>
+                            <div className="space-10 d-block d-md-none"/>
                             <img src={post.detail_media} alt="thumb"/>
-                            <div className="space-30"/>
+                            <div className="space-30 d-none d-md-block"/>
+                            <div className="space-10 d-block d-md-none"/>
                             <div className="row">
                                 <div className="col-lg-6 align-self-center">
                                     <div className="author">

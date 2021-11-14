@@ -252,7 +252,7 @@ body {
   padding: 10px 0;
 
   img {
-    max-width: 95%;
+    max-width: 80%;
   }
 
   .tp_search_form {
@@ -2721,6 +2721,7 @@ a.cbtn3 {
     padding: 30px 20px 20px;
   }
 }
+
 @media screen and (min-width: 1000px) {
   .welcome_list .slick-track {
     max-width: 990px !important;
@@ -2765,7 +2766,9 @@ a.cbtn3 {
     text-align: left !important;
     margin-top: 20px;
   }
-
+  .logo_area img {
+    max-width: 100%;
+  }
   .news_letter.box{
     padding: 30px 15px 20px;
   }
