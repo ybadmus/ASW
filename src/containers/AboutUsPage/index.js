@@ -145,7 +145,7 @@ const AboutUsPage = () => {
     useEffect(() => {
 
       if (businessNews.length === 0) {
-        fetchData2("https://admin.awutusenyawatch.com/api/v1/posts/latest_news").then(news => {
+        fetchData2("https://admin.aswnews.com/api/v1/posts/latest_news").then(news => {
           setBusinessNews(news);
           setLoading(false);
         });
@@ -156,7 +156,7 @@ const AboutUsPage = () => {
     useEffect(() => {
 
       if (entertainmentNews.length === 0) {
-        fetchData("https://admin.awutusenyawatch.com/api/v1/posts/entertainment_news").then(news => {
+        fetchData("https://admin.aswnews.com/api/v1/posts/entertainment_news").then(news => {
           setEntertainmentNews(news);
           setLoading(false);
         });
@@ -174,7 +174,7 @@ const AboutUsPage = () => {
     return (
         <Fragment>
             <Helmet>
-              <meta property="og:url"           content="https://www.awutusenyawatch.com/about" />
+              <meta property="og:url"           content="https://www.aswnews.com/about" />
               <meta property="og:type"          content="website" />
               <meta property="og:title"         content="Awutu Senya Watch" />
               <meta property="og:description"   content="Mouthpiece of Awutu Senya Constituency." />

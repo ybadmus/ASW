@@ -30,7 +30,7 @@ class ContactUsPage extends Component {
     submitHandler = async(e) => {
         e.preventDefault();
         if (this.validator.allValid()) {
-            const res = await fetch("https://admin.awutusenyawatch.com/api/v1/enquiries", { method: 'POST', mode: 'cors', 
+            const res = await fetch("https://admin.aswnews.com/api/v1/enquiries", { method: 'POST', mode: 'cors', 
             headers: { 'Access-Control-Allow-Origin':'*', 'Content-Type':'application/json' }, body: JSON.stringify(this.state)});
             if(res.status === 200) {
               toast.success('Enquiry successfully sent');
@@ -59,7 +59,7 @@ class ContactUsPage extends Component {
         return (
             <Fragment>
               <Helmet>
-                <meta property="og:url"           content="https://www.awutusenyawatch.com/contact" />
+                <meta property="og:url"           content="https://www.aswnews.com/contact" />
                 <meta property="og:type"          content="website" />
                 <meta property="og:title"         content="Awutu Senya Watch" />
                 <meta property="og:description"   content="Mouthpiece of Awutu Senya Constituency." />

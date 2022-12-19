@@ -45,7 +45,7 @@ const PostOnePage = () => {
     useEffect(() => {
       //add other conditions to reduce the rate of calls made here.
       if (id) {
-        fetchData(`https://admin.awutusenyawatch.com/api/v1/posts/${id}`).then(news => {
+        fetchData(`https://admin.aswnews.com/api/v1/posts/${id}`).then(news => {
           setCategory(news.category_name)
           setRelatedStories(news.related_stories);
           setPost(news);
@@ -65,7 +65,7 @@ const PostOnePage = () => {
         <Fragment>
 
             <Helmet>
-                <meta property="og:url"           content={`https://www.awutusenyawatch.com/post/${id}`} />
+                <meta property="og:url"           content={`https://www.aswnews.com/post/${id}`} />
                 <meta property="og:type"          content="website" />
                 <meta property="og:title"         content={post.title} />
                 <meta property="og:description"   content={`${stripHTML(post.description).slice(0, 200)} ...`} />

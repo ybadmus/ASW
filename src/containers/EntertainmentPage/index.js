@@ -82,7 +82,7 @@ const EntertainmentPage = () => {
     useEffect(() => {
 
       if (entertainments.length === 0) {
-        fetchData(`https://admin.awutusenyawatch.com/api/v1/categories/${id}/posts`).then(news => {
+        fetchData(`https://admin.aswnews.com/api/v1/categories/${id}/posts`).then(news => {
           if(news.length > 0)
             setCategory(news[0].category)
           setEntertainments(news);
